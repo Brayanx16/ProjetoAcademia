@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <title>Academia ADS | Login</title>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quattrocento+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/adsacadem.css">
+    <link id="favicon" href="img/favicon.png" rel="icon" type="image/x-icon">
+</head>
+
+<body>
+	<!-- Barra de navegação superior -->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-reprograma">
+		<div class="container">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#acad-navbar">
+                </button>
+				<a class="navbar-brand" href="index.html"> <img class="navbar-brand-acad" src="img/logo@2x.png"></a>
+			</div>
+
+			<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
+				<li><a href="index.html">Academia ADS</a></li>
+				<li><a href="planos.html">Planos</a></li>
+				<li><a href="modalidades.html">Modalidades</a></li>
+				<li class="active"><a href="login.html">Login</a></li>
+				<li><a href="contatos.html">Fale Conosco</a></li>
+			</ul>
+
+		</div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="recovery-panel panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Recuperação de Senha</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="post" action="php/recupera_senha.php">
+                    <fieldset>
+                        <input id="textinput" name="textinput" placeholder="email@email.com" class="form-control input-md" required="" type="text">
+                        <span class="help-block">Insira o email cadastrado no sistema</span>       
+                         
+                        <button id="recupera" name="recupera" class="btn btn-success">Recuperar</button>
+                        <button id="cancela" name="cancela" class="btn btn-danger">Cancelar</button>
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
