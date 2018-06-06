@@ -50,7 +50,9 @@ app.get('/modalidades', (req, res) => {
 app.get('/planos', (req, res) => {
     res.render('pages/planos')
 })
-
+app.get('/recupera-senha', (req, res) => {
+    res.render('pages/recupera-senha')
+})
 
 app.post('/contact', (req, res) => {
     res.send('Obrigado por entrar em contato conosco, ' + req.body.name + '! Responderemos em breve!')
