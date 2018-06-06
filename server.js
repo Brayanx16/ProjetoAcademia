@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded())  // Com essa configuração, vamos conseguir pa
 
 app.use(express.static(__dirname + '/public'))
 app.listen(port, () => {
-    console.log(`A mágica acontece em http://localhost:${port}`)
-    console.log(`A mágica acontece em http://academia-ads.ddns.net:${port}`)
+    console.log(`Essa porra esta funcionando em http://localhost:${port}`)
+    console.log(`Essa porra esta funcionando em http://academia-ads.ddns.net:${port}`)
 })
 
 app.get('/', (req, res) => {
