@@ -4,6 +4,7 @@ const port = process.env.PORT || 5000
 
 app.listen(port, () => {
     console.log(`Essa porra esta funcionando em http://localhost:${port}`)
+    console.log(`Essa porra esta funcionando em http://academia-ads.ddns.net:${port}`)
 })
 
 app.get('/', (req, res) => {
@@ -49,10 +50,10 @@ app.get('/cadastro-cli', (req, res) => {
     res.render('pages/cadastro-cli')
 })
 app.get('/admin', (req, res) => {
-    res.render('pages/admin')
+    res.render('admin/admin')
 })
 app.get('/user', (req, res) => {
-    res.render('pages/user')
+    res.render('cliente/user')
 })
 app.post('/contact', (req, res) => {
     res.send('Obrigado por entrar em contato conosco, ' + req.body.name + '! Responderemos em breve!')
