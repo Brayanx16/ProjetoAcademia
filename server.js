@@ -53,7 +53,15 @@ app.get('/planos', (req, res) => {
 app.get('/recupera-senha', (req, res) => {
     res.render('pages/recupera-senha')
 })
-
+app.get('/cadastro-cli', (req, res) => {
+    res.render('pages/cadastro-cli')
+})
+app.get('/admin', (req, res) => {
+    res.render('pages/admin')
+})
+app.get('/user', (req, res) => {
+    res.render('pages/user')
+})
 app.post('/contact', (req, res) => {
     res.send('Obrigado por entrar em contato conosco, ' + req.body.name + '! Responderemos em breve!')
 })
