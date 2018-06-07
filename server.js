@@ -3,7 +3,7 @@ const app = require('./config/express')();
 const port = process.env.PORT || 3000
 
 app.listen(port, () => {
-    console.log(`Servidor Rodando na Porta ${port}`)
+    console.log(`Servidor Rodando na Porta http://localhost:${port}`)
 })
 
 app.get('/', (req, res) => {
@@ -41,7 +41,9 @@ app.get('/admin', (req, res) => {
 app.get('/user', (req, res) => {
     res.render('cliente/user')
 })
-
+app.get('/about', (req, res) => {
+    res.render('pages/about')
+})
 app.post('/contact', (req, res) => {
     res.send('Obrigado por entrar em contato conosco, ' + req.body.name + '! Responderemos em breve!')
 })
