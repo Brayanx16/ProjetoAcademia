@@ -1,0 +1,157 @@
+<%- contentFor('body') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-lg-16 col-lg-offset-2">
+                <div class="cadastro-cli-panel panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Cadastro do Usuário</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <fieldset>
+
+                                <!-- Form Name -->
+                                <!--<legend></legend>-->
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idNome">Nome</label>
+                                    <div class="col-md-8">
+                                        <input id="idNome" name="idNome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idCPF">CPF</label>
+                                    <div class="col-md-8">
+                                        <input id="idCPF" name="CPF" type="text" maxlength="14" onkeypress="this.value = FormataCPF(event)" placeholder="xxx.xxx.xxx-xx"
+                                            class="form-control input-md" required="">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idTel">Telefone</label>
+                                    <div class="col-md-8">
+                                        <input id="idTel" name="idTel" type="tel" maxlength="16" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
+                                            class="form-control input-md" required="">
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idEmail">E-mail</label>
+                                    <div class="col-md-8">
+                                        <input id="idEmail" name="idEmail" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idSex">Sexo</label>
+                                    <div class="col-md-8">
+                                        <select id="idSex" name="idSex" class="form-control">
+                                            <option value="1">Masculino</option>
+                                            <option value="2">Feminino</option>
+                                            <option value="2">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idCEP">CEP</label>
+                                    <div class="col-md-8">
+                                        <input id="idCEP" name="CEP" type="text" maxlength="10" onkeypress="this.value = FormataCEP(event)" placeholder="CEP" class="form-control input-md"
+                                            required="">
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idLograd">Logradouro</label>
+                                    <div class="col-md-8">
+                                        <input id="idLograd" name="idLograd" type="text" placeholder="Logradouro" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idNumero">Nº</label>
+                                    <div class="col-md-8">
+                                        <input id="idNumero" name="idNumero" type="text" placeholder="Nº" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idBairro">Bairro</label>
+                                    <div class="col-md-8">
+                                        <input id="idBairro" name="idBairro" type="text" placeholder="Bairro" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idCidade">Cidade</label>
+                                    <div class="col-md-8">
+                                        <input id="idCidade" name="idCidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idEstado">Estado</label>
+                                    <div class="col-md-8">
+                                        <input id="idEstado" name="idEstado" type="text" placeholder="Estado" class="form-control input-md" required="">
+
+                                    </div>
+                                </div>
+                                <fieldset id="usuario" class="example">
+                                    <!--<legend>Cadastro do Tipo de Usuário no Sistema</legend>-->
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                            <legend>Cadastro do Tipo de Usuário no Sistema</legend>
+                                        <label class="col-md-2 control-label" for="idUsuario">Usuário</label>
+                                        <div class="col-md-8">
+                                            <input id="idUsuario" name="idUsuario" type="text" placeholder="Login do usuario" class="form-control input-md" required="">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Password input-->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="idSenha">Senha</label>
+                                        <div class="col-md-8">
+                                            <input id="idSenha" name="idSenha" type="password" placeholder="Digite a senha" class="form-control input-md" required="">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Select Basic -->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="idAdmin">Tipo de Cadastro</label>
+                                        <div class="col-md-8">
+                                            <select id="idAdmin" name="idAdmin" class="form-control">
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Personal Trainer</option>
+                                                <option value="2">Cliente</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- Button (Double) -->
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="idConfirmar"></label>
+                                    <div class="col-md-8">
+                                        <button id="idConfirmar" name="idConfirmar" class="btn btn-primary">confirmar</button>
+                                        <button id="idCancelar" name="idCancelar" class="btn btn-danger">Cancelar</button>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
