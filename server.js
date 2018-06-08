@@ -1,10 +1,6 @@
 const app = require('./config/express')();
 
-<<<<<<< HEAD
 const port = process.env.PORT || 5000
-=======
-const port = process.env.PORT || 3000
->>>>>>> 4d5ee99418815156f1758df744d3033c38e4ccf7
 
 app.listen(port, () => {
     console.log(`Servidor Rodando na Porta http://localhost:${port}`)
