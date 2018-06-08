@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express')
 const faker = require('faker')
 const bodyParser = require('body-parser')
@@ -13,3 +14,18 @@ app.use(express.static(__dirname + 'public'))
 module.exports(() => {
      return app
 });
+=======
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
+
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+module.exports = () =>{
+    return app;
+};
+>>>>>>> 4d5ee99418815156f1758df744d3033c38e4ccf7
