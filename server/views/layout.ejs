@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Academia ADS</title>
+	<meta charset="utf-8">
+
+	<!--link CSS-->
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/adsacadem.css"/>
+	<link rel="stylesheet" href="/css/admin.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<!-- Fontes da Google -->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Raleway+Sans" rel="stylesheet">
+	<!-- Icone -->
+	<link id="favicon" href="/img/favicon.png" rel="icon" type="image/x-icon">
+</head>
+
+<body onload="goforit();">
+	<header>
+		<!-- Barra de navegação superior -->
+		<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#acad-navbar">
+					</button>
+					<a class="navbar-brand" href="/">
+						<img class="navbar-brand-acad" src="img/logo@2x.png">
+					</a>
+				</div>
+
+				<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
+					<li class="active">
+						<a class="navbar-brand glyphicon glyphicon-home" href="/"> Home</a>
+					</li>
+					<li>
+						<a class="navbar-brand glyphicon glyphicon-scale" href="planos"> Planos</a>
+					</li>
+					<li>
+						<a class="navbar-brand glyphicon glyphicon-asterisk" href="modalidades"> Modalidades</a>
+					</li>
+					<li>
+						<a class="navbar-brand glyphicon glyphicon-envelope" href="contact"> Contato </a>
+					</li>
+					<li>
+						<a class="navbar-brand glyphicon glyphicon-info-sign" href="about"> Sobre </a>
+					</li>
+					<li>
+						<a class="navbar-brand glyphicon glyphicon-user collapse" href="login"> Login</a>
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container">
+			<%- body %>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<p class="col-md-2">
+			<a href="\">Copyright &COPY; 2018 Turma ADS</a>
+		</p>
+	</footer>
+
+	<script type="text/javascript" src="/js/funcoes.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	 
+</body>
+
+</html>
