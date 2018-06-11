@@ -4,9 +4,9 @@ function verificaNumero(e) {
     }
 }
 $(document).ready(function () {
-    $("#idCPF").keypress(verificaNumero);
-    $("#idTel").keypress(verificaNumero);
-    $("#idCEP").keypress(verificaNumero);
+    $("#cpf").keypress(verificaNumero);
+    $("#telefone").keypress(verificaNumero);
+    $("#cep").keypress(verificaNumero);
 });
 $(document).ready(function () {
     $('.ocultarfundo').live('click', function () {

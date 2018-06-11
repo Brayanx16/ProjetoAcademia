@@ -1,5 +1,6 @@
+
 module.exports = (app) =>{
-    
+
     app.get('/', (req, res) => {
         res.render('pages/home')
     });
@@ -24,25 +25,51 @@ module.exports = (app) =>{
         res.render('pages/recupera-senha')
     });
     
-    app.get('/cadastro-cli', (req, res) => {
-        res.render('pages/cadastro-cli')
+    app.get('/cadastroCli', (req, res) => {
+        res.render('admin/cadastroCli')
     });
     
-    app.get('/admin', (req, res) => {
-        res.render('admin/admin')
+    let = listaProdutos = (req, res) => {
+        let connection = app.infra.connectionFactory();
+        let clientesBanco = new app.infra.clientesBanco(connection);
+
+        clientesBanco.lista((erros, resultados) => {
+            res.render('admin/list', {lista: resultados});
+        });
+        connection.end();
+    };
+
+    app.get('/list', listaProdutos);
+
+    app.post('/admin', (req, res) => {
+        let cliente = req.body;
+        
+        let connection = app.infra.connectionFactory();
+        let clientesBanco = new app.infra.clientesBanco(connection);
+        
+        clientesBanco.salva(cliente, (erros, resultados) => {
+            res.redirect('/list')
+        });
+    });
+
+    app.delete('/admin/:id', (req, res, next) => {
+        let id = req.params.id;
+
+        let connection = app.infra.connectionFactory();
+        let clientesBanco = new app.infra.clientesBanco(connection);
+
+        clientesBanco.delete(id, (erros, resultados) =>{
+            console.log(erros);
+                res.redirect('/list')
+        });
     });
     
     app.get('/user', (req, res) => {
-        res.render('cliente/user')
+        res.render('admin/user')
     });
     
     /*app.get('/about', (req, res) => {
         res.render('pages/about')
     });*/
-
-    app.post('/contact', (req, res) => {
-        res.send('Obrigado por entrar em contato conosco, ' + req.body.name + '! Responderemos em breve!')
-    });
-    
 
 }

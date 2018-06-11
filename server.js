@@ -1,7 +1,5 @@
-const app = require('./config/express')();
-const rotasAdmin = require('./server/routes/admin')(app);
-const port = process.env.PORT || 3000
+let app = require('./config/express')();
 
-app.listen(port, () => {
-    console.log(`Servidor Rodando na Porta ${port}`)
+app.listen(3000, () => {
+    console.log('Servidor Rodando na Porta 3000')
 });

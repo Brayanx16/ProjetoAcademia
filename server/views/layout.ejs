@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Academia ADS</title>
 	<meta charset="utf-8">
@@ -12,11 +11,12 @@
 	<link rel="stylesheet" href="/css/user.css">
 	<!-- Fontes da Google -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald|Raleway+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Icone -->
 	<link id="favicon" href="/img/favicon.png" rel="icon" type="image/x-icon">
 </head>
 
-<body onload="goforit();">
+<body>
 	<header>
 		<!-- Barra de navegação superior -->
 		<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
@@ -32,22 +32,16 @@
 
 				<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
 					<li class="active">
-						<a class="glyphicon glyphicon-home" href="/"> Home</a>
+						<a class="glyphicon glyphicon-home" href="/"> Home </a>
 					</li>
 					<li>
-						<a class="glyphicon glyphicon-scale" href="planos"> Planos</a>
+						<a class="glyphicon glyphicon-list-alt" href="planos"> Planos</a>
 					</li>
 					<li>
-						<a class="glyphicon glyphicon-asterisk" href="modalidades"> Modalidades</a>
+						<a class="glyphicon glyphicon-phone" href="contact"> Contato </a>
 					</li>
 					<li>
-						<a class="glyphicon glyphicon-envelope" href="contact"> Contato </a>
-					</li>
-					<li>
-						<a class="glyphicon glyphicon-info-sign" href="about"> Sobre </a>
-					</li>
-					<li>
-						<a class="glyphicon glyphicon-user collapse" href="login"> Login</a>
+						<a class="glyphicon glyphicon-comment" href="about"> Sobre </a>
 					</li>
 				</ul>
 
@@ -60,17 +54,10 @@
 			<%- body %>
 		</div>
 	</main>
-
-	<footer class="footer">
-		<p class="col-md-2">
-			<a href="\">Copyright &COPY; 2018 Turma ADS</a>
-		</p>
-	</footer>
-
+	
+	<!-- Scripts -->
 	<script type="text/javascript" src="/js/funcoes.js"></script>
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	 
 </body>
-
 </html>
