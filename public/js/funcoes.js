@@ -13,17 +13,15 @@ $(document).ready(function () {
         $('.barra').toggleClass("barraoculta"); //classe onde a barra fica transparente, ou de outra forma.
     });
 });
-$(window).scroll(function() {
+$(window).scroll(function () {
 
-    if ($(this).scrollTop()>10)
-     {
+    if ($(this).scrollTop() > 10) {
         $('.navbar').fadeOut();
-     }
-    else
-     {
-      $('.navbar').fadeIn();
-     }
- });
+    }
+    else {
+        $('.navbar').fadeIn();
+    }
+});
 function FormataCPF(evt) {
     vr = (navigator.appName == 'Netscape') ? evt.target.value : evt.srcElemente.value;
     if (vr.length == 3) vr = vr + ".";
@@ -45,3 +43,9 @@ function FormataCEP(evt) {
     if (vr.length == 6) vr = vr + "-";
     return vr;
 }
+$(document).ready(function () {
+    $('.button-left').click(function () {
+        $('.sidebar').toggleClass('fliph');
+    });
+
+});
