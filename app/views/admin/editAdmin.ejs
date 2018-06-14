@@ -1,0 +1,86 @@
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img class="navbar-brand-acad" src="/img/logo@2x.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header"> 
+                <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                </button>
+                    <a class="navbar-brand" href="#">Admistração</a>
+            </div>
+    </nav>
+    
+    <div class="container-fluid main-container">
+        <div class="col-md-2 sidebar">
+            <div class="row">
+                <!-- Menu -->
+                <div>
+                    <nav class="navbar navbar-default" role="navigation">
+                        <!-- Main Menu -->
+                        <div class="side-menu-container">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="list">
+                                        <span class="glyphicon glyphicon-user"></span> Clientes </a>
+                                </li>
+                            
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>  
+    
+        <div class="col-md-10 content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Atualizar Dados do Administrador
+                </div>
+                <div class="panel-body">
+                    <form action="/update/admin/<%= data.idadmin %>" class="form-horizontal" method="POST">
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="nome">Nome</label>
+                            <div class="col-md-10">
+                                <input value="<%= data.nome %>" id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="email">Email</label>
+                            <div class="col-md-10">
+                                <input value="<%= data.email %>" id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
+                            </div>
+                        </div> 
+                        <!-- Text input-->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="telefone">Tel.</label>
+                            <div class="col-md-10">
+                                <input value="<%= data.telefone %>" id="telefone" type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
+                                    class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="senha">Senha</label>
+                            <div class="col-md-10">
+                                <input value="<%= data.senha %>" id="senha" name="senha" type="text" placeholder="Senha" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-primary" value="Confirmar">
+                                <a href="/listAdmin"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,129 @@
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img class="navbar-brand-acad" src="/img/logo@2x.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header"> 
+                <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                </button>
+                    <a class="navbar-brand" href="#">Admistração</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">			
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Account
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="">
+                                <a href="#">Meus Dados</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Configurações</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/login">Sair</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div class="container-fluid main-container">
+        <div class="col-md-2 sidebar">
+            <div class="row">
+                <!-- Menu -->
+                <div class="side-menu">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <!-- Main Menu -->
+                        <div class="side-menu-container">
+                            <ul class="nav navbar-nav">
+                                <li class="panel panel-default" id="dropdown">
+                                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                                        <span class="glyphicon glyphicon-user"></span> Administrador <span class="caret"></span>
+                                    </a>
+                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="/cliente/listCli">Clientes</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="panel panel-default" id="dropdown">
+                                        <a data-toggle="collapse" href="#dropdown-lvl2">
+                                            <span class="glyphicon glyphicon-plus"></span> Cadastro <span class="caret"></span>
+                                        </a>
+                                        <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li>
+                                                        <a href="/admin/cadastroAdmin">Administrador</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/cliente/cadastroCli">Clientes</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-list-alt"></span> Relatorios </a>
+                                </li>   
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>  
+    
+        <div class="col-md-10 content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Lista de Administrador
+                </div>
+                <table class="table table-striped table-bordered ">
+                    <thead>
+                        <tr>
+                            <td><strong>NOME</strong></td>
+                            <td><strong>Email</strong></td> 
+                            <td><strong>TELEFONE</strong></td>
+                            <td><strong>SENHA</strong></td>
+                            <td><strong>AÇÕES</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(var i = 0; i < data.length; i++) {%>
+                            <tr>
+                                <td><%=data[i].nome %></td>
+                                <td><%=data[i].email %></td> 
+                                <td><%=data[i].telefone %></td>
+                                <td><%=data[i].senha %></td>
+                                <td class="text-center">
+                                    <a href="/delete/admin/<%= data[i].idadmin %>"><button class="btn btn-danger glyphicon glyphicon-trash"></button></a> 
+                                    <a href='/update/admin/<%= data[i].idadmin %>'><button class="btn btn-primary glyphicon glyphicon-edit"></button></a>
+                                </td> 
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

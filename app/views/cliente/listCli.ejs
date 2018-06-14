@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">
-                <img class="navbar-brand-acad" src="img/logo@2x.png">
+                <img class="navbar-brand-acad" src="/img/logo@2x.png">
             </a>
         </div>
     </div>
@@ -34,7 +34,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login">Sair</a>
+                            <a href="/login">Sair</a>
                         </li>
                     </ul>
                 </li>
@@ -52,17 +52,41 @@
                     <!-- Main Menu -->
                     <div class="side-menu-container">
                         <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href="list">
-                                    <span class="glyphicon glyphicon-user"></span> Clientes </a>
+                            <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#dropdown-lvl1">
+                                    <span class="glyphicon glyphicon-user"></span> Clientes <span class="caret"></span>
+                                </a>
+                                <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li>
+                                                <a href="/admin/listAdmin">Administrador</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </li>
                             <li>
-                                <a href="cadastroCli">
-                                    <span class="glyphicon glyphicon-plus"></span> Cadastro </a>
-                            </li>
+                            <li class="panel panel-default" id="dropdown">
+                                    <a data-toggle="collapse" href="#dropdown-lvl2">
+                                        <span class="glyphicon glyphicon-plus"></span> Cadastro <span class="caret"></span>
+                                    </a>
+                                    <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="/admin/cadastroAdmin">Administrador</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/cliente/cadastroCli">Clientes</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
                             <li>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-list-alt"></span> Relatorios </a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-list-alt"></span> Relatorios </a>
                             </li>   
                         </ul>
                     </div>

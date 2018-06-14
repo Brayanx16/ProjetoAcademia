@@ -88,9 +88,12 @@
                             <label class="col-md-2 control-label" for="sexo">Sexo</label>
                             <div class="col-md-10">
                                 <select value="<%= data.sexo %>" id="sexo" name="sexo" class="form-control">
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Feminino">Feminino</option>
-                                    <option value="Outro">Outro</option>
+                                    <option value="Masculino" <% var selecionado = ''; if(data.sexo == 'Masculino'){ selecionado = 'selected'} %>
+                                        <%=selecionado %> > Masculino </option>
+                                    <option value="Feminino" <% var selecionado = ''; if(data.sexo == 'Feminino'){ selecionado = 'selected'} %>
+                                        <%=selecionado %> > Feminino </option>
+                                    <option value="Outro" <% var selecionado = ''; if(data.sexo == 'Outro'){ selecionado = 'selected'} %>
+                                        <%=selecionado %> > Outro </option>
                                 </select>
                             </div>
                         </div> 
@@ -134,16 +137,19 @@
                             <label class="col-md-2 control-label" for="plano">Plano</label>
                             <div class="col-md-10">
                                 <select value="<%= data.plano %>" id="plano" name="plano" class="form-control">
-                                    <option value="Básico">Básico</option>
-                                    <option value="Intermediário">Intermediário</option>
-                                    <option value="Musculação">Musculação</option>
+                                    <option value="Básico" <% var selecionado = ''; if(data.plano == 'Basico'){ selecionado = 'selected'} %>
+                                        <%=selecionado %> > Básico </option>
+                                    <option value="Intermediário" <% var selecionado = ''; if(data.plano == 'Intermediário'){ selecionado = 'selected'} %>
+                                        <%=selecionado %> > Intermediário </option>
+                                    <option value="Musculação" <% var selecionado = ''; if(data.plano == 'Musculação'){ selecionado = 'selected'} %>
+                                        <%=selecionado %> > Musculação </option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-12">
                             <div class="col-md-12">
                                 <input type="submit" class="btn btn-primary" value="Confirmar">
-                                <a href="/list"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                                <a href="/cliente/listCli"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
                             </div>
                         </div>
                     </form>

@@ -1,0 +1,141 @@
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img class="navbar-brand-acad" src="/img/logo@2x.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header"> 
+                <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                </button>
+                    <a class="navbar-brand" href="#">Admistração</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">			
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Account
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="">
+                                <a href="#">Meus Dados</a>
+                            </li>
+                            <li class="">
+                                <a href="#">Configurações</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/login">Sair</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div class="container-fluid main-container">
+        <div class="col-md-2 sidebar">
+            <div class="row">
+                <!-- Menu -->
+                <div class="side-menu">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <!-- Main Menu -->
+                        <div class="side-menu-container">
+                            <ul class="nav navbar-nav">
+                                <li class="panel panel-default" id="dropdown">
+                                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                                        <span class="glyphicon glyphicon-user"></span> Administrador <span class="caret"></span>
+                                    </a>
+                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="/cliente/listCli"> Cliente </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="panel panel-default" id="dropdown">
+                                    <a data-toggle="collapse" href="#dropdown-lvl2">
+                                        <span class="glyphicon glyphicon-plus"></span> Cadastro <span class="caret"></span>
+                                    </a>
+                                    
+                                    <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="/admin/cadastroAdmin">Administrador</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/cliente/cadastroCli">Clientes</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <li>
+                                        <a href="#">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Relatorios </a>
+                                    </li>   
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>  
+    
+        <div class="col-md-10 content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Cadastro de Administrador
+                </div>
+                <div class="panel-body">
+                    <form action="/add/admin" class="form-horizontal" method="POST">
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="nome">Nome</label>
+                            <div class="col-md-10">
+                                <input id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
+                          <label class="col-md-2 control-label" for="email">Email</label>
+                          <div class="col-md-10">
+                              <input id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
+                          </div>
+                        </div> 
+                        <!-- Text input-->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="telefone">Tel.</label>
+                            <div class="col-md-10">
+                                <input id="telefone" type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
+                                    class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="senha">Senha</label>
+                            <div class="col-md-10">
+                                <input id="senha" name="senha" type="text" placeholder="Senha" class="form-control input-md" required="">
+                            </div>
+                        </div> 
+                        <div class="col-md-8">
+                            <input type="submit" class="btn btn-primary" value="Confirmar">
+                            <a href="/admin/listAdmin"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>

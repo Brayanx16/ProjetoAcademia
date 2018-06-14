@@ -3,7 +3,7 @@ const controller = {};
 controller.list = (req, res) => {
   req.getConnection((erro, conn) => {
     conn.query('select * from cliente', (erros, admin) => {
-     res.render('admin/list', {data: admin});
+     res.render('cliente/listCli', {data: admin});
     });
   });
 };
@@ -13,7 +13,7 @@ controller.add = (req, res) => {
 
   req.getConnection((err, connection) => {
     const query = connection.query('insert into cliente set ?', data, (erros, customer) => {
-      res.redirect('/list');
+      res.redirect('cliente/listCli');
     })
   })
 };
@@ -23,7 +23,7 @@ controller.edit = (req, res) => {
   
   req.getConnection((err, conn) => {
     conn.query("select * from cliente where id = ?", [id], (err, rows) => {
-      res.render('admin/edit', {
+      res.render('cliente/editCli', {
         data: rows[0]
       })
     });
@@ -36,7 +36,7 @@ controller.update = (req, res) => {
   req.getConnection((err, conn) => {
 
   conn.query('update cliente set ? where id = ?', [newCustomer, id], (err, rows) => {
-    res.redirect('/list');
+    res.redirect('/cliente/listCli');
   });
   });
 };
@@ -45,7 +45,60 @@ controller.delete = (req, res) => {
   const { id } = req.params;
   req.getConnection((err, connection) => {
     connection.query('delete from cliente where id = ?', [id], (err, rows) => {
-      res.redirect('/list');
+      res.redirect('/cliente/listCli');
+    });
+  });
+}
+// Rotas de Cadastro de Administrador 
+
+controller.listAdmin = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select * from admin', (erros, admin) => {
+     res.render('admin/listAdmin', {data: admin});
+    });
+  });
+};
+
+controller.addAdmin = (req, res) => {
+  const data = req.body;
+  console.log(req.body);
+  req.getConnection((err, connection) => {
+    const query = connection.query('insert into admin set ?', data, (erros, customer) => {
+      res.redirect('/admin/listAdmin');
+    })
+  })
+};
+
+controller.editAdmin = (req, res) => {
+  const { idadmin } = req.params;
+  console.log(req.params);
+  
+  req.getConnection((err, conn) => {
+    conn.query("select * from admin where idadmin = ?", [idadmin], (err, rows) => {
+      res.render('admin/editAdmin', {
+        data: rows[0]
+      })
+    });
+  });
+};
+
+controller.updateAdmin = (req, res) => {
+  const { idadmin } = req.params;
+  const newCustomer = req.body;
+  
+  req.getConnection((err, conn) => {
+
+  conn.query('update admin set ? where idadmin = ?', [newCustomer, idadmin], (err, rows) => {
+    res.redirect('/admin/listAdmin');
+  });
+  });
+};
+
+controller.deleteAdmin = (req, res) => {
+  const { idadmin } = req.params;
+  req.getConnection((err, connection) => {
+    connection.query('delete from admin where idadmin = ?', [idadmin], (err, rows) => {
+      res.redirect('/admin/listAdmin');
     });
   });
 }

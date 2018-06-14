@@ -13,16 +13,29 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/recupera-senha', (req, res) => { res.render('pages/recupera-senha') });
     //---------------------------------------------------------------------------------------------
-    router.get('/cadastroCli', (req, res) => { res.render('admin/cadastroCli') });
+    router.get('/cliente/cadastroCli', (req, res) => { res.render('cliente/cadastroCli') });
     //---------------------------------------------------------------------------------------------
-    router.get('/list', routesController.list)
+    router.get('/admin/cadastroAdmin', (req, res) => { res.render('admin/cadastroAdmin') });
     //---------------------------------------------------------------------------------------------
-    router.post('/add', routesController.add)
+    router.get('/cliente/listCli', routesController.list);
+    //---------------------------------------------------------------------------------------------
+    router.post('/add', routesController.add);
     //---------------------------------------------------------------------------------------------
     router.get('/update/:id', routesController.edit);
     //---------------------------------------------------------------------------------------------
     router.post('/update/:id', routesController.update);
     //---------------------------------------------------------------------------------------------
     router.get('/delete/:id', routesController.delete);
+
+    //Rotas Admin ---------------------------------------------------------------------------------
+    router.get('/admin/listAdmin', routesController.listAdmin);
+    //---------------------------------------------------------------------------------------------
+    router.post('/add/admin', routesController.addAdmin);
+    //---------------------------------------------------------------------------------------------
+    router.get('/update/admin/:idadmin', routesController.editAdmin);
+    //---------------------------------------------------------------------------------------------
+    router.post('/update/admin/:idadmin', routesController.updateAdmin);
+
+    router.get('/delete/admin/:idadmin', routesController.deleteAdmin);
 
 module.exports = router;

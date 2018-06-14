@@ -1,12 +1,5 @@
 <nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <img class="navbar-brand-acad" src="img/logo@2x.png">
-                </a>
-            </div>
-        </div>
-    </nav>
+</nav>
     
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
@@ -34,7 +27,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login">Sair</a>
+                                <a href="/login">Sair</a>
                             </li>
                         </ul>
                     </li>
@@ -52,17 +45,40 @@
                         <!-- Main Menu -->
                         <div class="side-menu-container">
                             <ul class="nav navbar-nav">
-                                <li class="active">
-                                    <a href="list">
-                                        <span class="glyphicon glyphicon-user"></span> Clientes </a>
+                                <li class="panel panel-default" id="dropdown">
+                                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                                        <span class="glyphicon glyphicon-user"></span> Cliente <span class="caret"></span>
+                                    </a>
+                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="/admin/listAdmin"> Administrador </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </li>
+                                <li class="panel panel-default" id="dropdown">
+                                        <a data-toggle="collapse" href="#dropdown-lvl2">
+                                            <span class="glyphicon glyphicon-plus"></span> Cadastro <span class="caret"></span>
+                                        </a>
+                                        <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li>
+                                                        <a href="/admin/cadastroAdmin">Administrador</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/cliente/cadastroCli">Clientes</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
                                 <li>
-                                    <a href="cadastroCli">
-                                        <span class="glyphicon glyphicon-plus"></span> Cadastro </a>
-                                </li>
-                                <li>
-                                    <a href="login">
-                                        <span class="glyphicon glyphicon-list-alt"></span> Relatorios </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-list-alt"></span> Relatorios </a>
                                 </li>   
                             </ul>
                         </div>
@@ -120,6 +136,7 @@
                             <label class="col-md-2 control-label" for="sexo">Sexo</label>
                             <div class="col-md-10">
                                 <select id="sexo" name="sexo" class="form-control">
+                                    <option value="" disabled selected> Informe seu Sexo </option>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
                                     <option value="Outro">Outro</option>
@@ -175,7 +192,7 @@
                         </div> 
                             <div class="col-md-8">
                                 <input type="submit" class="btn btn-primary" value="Confirmar">
-                                <a href="/list"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                                <a href="/cliente/listCli"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
                             </div>
                         </div>
                     </form>
