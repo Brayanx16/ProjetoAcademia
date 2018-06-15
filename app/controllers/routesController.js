@@ -1,30 +1,33 @@
 const controller = {};
 
 // Rotas de Cadastro de Administrador 
-  controller.list = (req, res) => {
-    /*let email = req.body.email,
-        //senha = req.body.senha;
-
-    req.getConnection((erro, conn) => {
-      conn.query('select email, senha from admin', (erros, rows) => {
-      let emailBanco = rows[0].email,
-          senhaBanco = rows[0].senha;*/
-      
-      //if (emailBanco == email && senhaBanco == senha) {
-        
-        req.getConnection((erro, conn) => {
+controller.login = (req, res) => {
+  let email = req.body.email,
+      senha = req.body.senha;
+  req.getConnection((erro, conn) => {
+    conn.query('select email, senha from admin', (erros, rows) => {
+    let emailBanco = rows[0].email,
+        senhaBanco = rows[0].senha;
+      if (emailBanco == email && senhaBanco == senha) {
+        req.getConnection((erros, conn) => {
           conn.query('select * from cliente', (erros, admin) => {
            res.render('cliente/listCli', {data: admin});
           });
         });
-
-      /*}else{        
+      }else{
         res.redirect('/login')
-      }*/
+      }
+    })
+  })
+};
 
-      /*})
-    })*/
-  };
+controller.list = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select * from cliente', (erros, admin) => {
+      res.render('cliente/listCli', {data: admin});
+    })
+  })
+}
 
 controller.add = (req, res) => {
   const data = req.body;

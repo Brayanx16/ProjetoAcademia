@@ -9,7 +9,7 @@ $(document).ready(function () {
     $("#cep").keypress(verificaNumero);
 });
 $(document).ready(function () {
-    $('.ocultarfundo').live('click', function () {
+    $('.ocultarfundo').on('click', function () {
         $('.barra').toggleClass("barraoculta"); //classe onde a barra fica transparente, ou de outra forma.
     });
 });
