@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const routesController = require('../controllers/routesController');
 
+    //Rodas da Pagina------------------------------------------------------------------------------
     router.get('/', (req, res) => { res.render('pages/home') });
     //---------------------------------------------------------------------------------------------
     router.get('/contact', (req, res) => { res.render('pages/contact') });
@@ -16,6 +17,9 @@ const routesController = require('../controllers/routesController');
     router.get('/cliente/cadastroCli', (req, res) => { res.render('cliente/cadastroCli') });
     //---------------------------------------------------------------------------------------------
     router.get('/admin/cadastroAdmin', (req, res) => { res.render('admin/cadastroAdmin') });
+    
+    //Rotas Cliente--------------------------------------------------------------------------------
+    router.get('/admin/homeAdmin', (req, res) => { res.render('admin/homeAdmin') })
     //---------------------------------------------------------------------------------------------
     router.get('/cliente/listCli', routesController.list);
     //---------------------------------------------------------------------------------------------
@@ -35,7 +39,11 @@ const routesController = require('../controllers/routesController');
     router.get('/update/admin/:idadmin', routesController.editAdmin);
     //---------------------------------------------------------------------------------------------
     router.post('/update/admin/:idadmin', routesController.updateAdmin);
-
+    //---------------------------------------------------------------------------------------------
     router.get('/delete/admin/:idadmin', routesController.deleteAdmin);
+
+
+    //Rota Login-----------------------------------------------------------------------------------
+    router.post('/cliente/listCli', routesController.list);
 
 module.exports = router;

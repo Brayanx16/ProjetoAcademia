@@ -9,6 +9,7 @@ h1, h2, h3, li{
     /*font-family: Montserrat, sans-serif;*/
     font-family: 'Oswald', sans-serif;
     font-family: 'Raleway', sans-serif;
+    color: #ffffff;
 }
 
 legend, label {
@@ -18,7 +19,7 @@ legend, label {
 a {
     font-family: 'Oswald', sans-serif;
     font-family: 'Raleway', sans-serif;
-    color: #030303;
+    color: #ffffff;
     font-weight: 700;
 }
 .example {
@@ -32,7 +33,7 @@ a {
 }
 
 .navbar-reprograma{
-    background-color: #cee7ef
+    background-color: #3a3c4e
 }
 
 .acad-prato-imagem {
@@ -58,7 +59,7 @@ a {
     width: 100%;
     position:absolute;
     background-repeat: repeat;
-    background-image: linear-gradient(rgb(106, 141, 115), rgb(106, 141, 115));
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(38, 41, 48));
 }
 
 .card-container.card {
@@ -189,13 +190,13 @@ a {
 }
 
 .forgot-password {
-    color: rgb(104, 145, 162);
+    color: rgb(51, 122, 183);
 }
 
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
-    color: rgb(12, 97, 33);
+    color: rgb(31, 59, 83);
 }
 
 .recovery-panel {
