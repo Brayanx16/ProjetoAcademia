@@ -1,41 +1,44 @@
 const controller = {};
 
-// Rotas de Cadastro de Administrador 
+// Rota de Login
 controller.login = (req, res) => {
-  let email = req.body.email,
-      senha = req.body.senha;
+  const email = req.body.email,
+        senha = req.body.senha;
+
   req.getConnection((erro, conn) => {
-    conn.query('select email, senha from admin', (erros, rows) => {
-    let emailBanco = rows[0].email,
-        senhaBanco = rows[0].senha;
-      if (emailBanco == email && senhaBanco == senha) {
+    conn.query('select * from admin where email = ? and senha = ?', [email, senha], (erro, results) => {
+      if (results == "") {
+        res.redirect('/login')
+
+      }else{
+        console.log(results);
         req.getConnection((erros, conn) => {
           conn.query('select * from cliente', (erros, admin) => {
            res.render('cliente/listCli', {data: admin});
+
           });
         });
-      }else{
-        res.redirect('/login')
       }
-    })
-  })
+    });
+  });
 };
 
+// Rodas do Cliente
 controller.list = (req, res) => {
   req.getConnection((erro, conn) => {
     conn.query('select * from cliente', (erros, admin) => {
       res.render('cliente/listCli', {data: admin});
-    })
-  })
-}
+    });
+  });
+};
 
 controller.add = (req, res) => {
   const data = req.body;
   req.getConnection((err, connection) => {
     const query = connection.query('insert into cliente set ?', data, (erros, customer) => {
       res.redirect('cliente/listCli');
-    })
-  })
+    });
+  });
 };
 
 controller.edit = (req, res) => {
@@ -46,7 +49,7 @@ controller.edit = (req, res) => {
       res.render('cliente/editCli', {
         data: rows[0]
         
-      })
+      });
     });
   });
 };
@@ -69,9 +72,9 @@ controller.delete = (req, res) => {
       res.redirect('/cliente/listCli');
     });
   });
-}
-// Rotas de Cadastro de Administrador 
+};
 
+// Rotas do Administrador 
 controller.listAdmin = (req, res) => {
   const data = req.body;
   
@@ -87,8 +90,8 @@ controller.addAdmin = (req, res) => {
   req.getConnection((err, connection) => {
     const query = connection.query('insert into admin set ?', data, (erros, customer) => {
       res.redirect('/admin/listAdmin');
-    })
-  })
+    });
+  });
 };
 
 controller.editAdmin = (req, res) => {
@@ -98,7 +101,7 @@ controller.editAdmin = (req, res) => {
     conn.query("select * from admin where idadmin = ?", [idadmin], (err, rows) => {
       res.render('admin/editAdmin', {
         data: rows[0]
-      })
+      });
     });
   });
 };
@@ -110,8 +113,8 @@ controller.updateAdmin = (req, res) => {
   req.getConnection((err, conn) => {
 
   conn.query('update admin set ? where idadmin = ?', [newCustomer, idadmin], (err, rows) => {
-    res.redirect('/admin/listAdmin');
-  });
+      res.redirect('/admin/listAdmin');
+    });
   });
 };
 
@@ -122,8 +125,6 @@ controller.deleteAdmin = (req, res) => {
       res.redirect('/admin/listAdmin');
     });
   });
-}
-
-
+};
 
 module.exports = controller;

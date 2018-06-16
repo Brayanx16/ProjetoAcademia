@@ -44,6 +44,6 @@ const routesController = require('../controllers/routesController');
 
 
     //Rota Login-----------------------------------------------------------------------------------
-    router.post('/cliente/listCli', routesController.login);
+    router.post('/cliente/listCli/', routesController.login);
 
 module.exports = router;

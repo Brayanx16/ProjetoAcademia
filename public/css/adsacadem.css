@@ -205,6 +205,24 @@ a {
 .formulario-panel {
     margin-top: 50px; 
 }
+
+.zoom {
+    overflow: hidden;
+}
+
+.zoom {
+    max-width: 100%;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.zoom:hover img {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
 .cadastro-cli-panel {
     margin-top: 10px; 
 }
