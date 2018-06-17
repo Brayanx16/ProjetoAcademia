@@ -4,12 +4,13 @@ const controller = {};
 controller.login = (req, res) => {
   const email = req.body.email,
         senha = req.body.senha;
-
+        console.log(email);
+        console.log(senha);
+        
   req.getConnection((erro, conn) => {
     conn.query('select * from admin where email = ? and senha = ?', [email, senha], (erro, results) => {
       if (results == "") {
         res.redirect('/login')
-
       }else{
         console.log(results);
         req.getConnection((erros, conn) => {

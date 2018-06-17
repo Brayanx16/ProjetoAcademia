@@ -4,8 +4,6 @@ const routesController = require('../controllers/routesController');
     //Rodas da Pagina------------------------------------------------------------------------------
     router.get('/', (req, res) => { res.render('pages/home') });
     //---------------------------------------------------------------------------------------------
-    router.get('/contact', (req, res) => { res.render('pages/contact') });
-    //---------------------------------------------------------------------------------------------
     router.get('/login', (req, res) => { res.render('pages/login') });
     //---------------------------------------------------------------------------------------------
     router.get('/modalidades', (req, res) => { res.render('pages/modalidades') });
@@ -41,7 +39,8 @@ const routesController = require('../controllers/routesController');
     router.post('/update/admin/:idadmin', routesController.updateAdmin);
     //---------------------------------------------------------------------------------------------
     router.get('/delete/admin/:idadmin', routesController.deleteAdmin);
-
+    //---------------------------------------------------------------------------------------------
+    router.get('/admin/relatorios', (req, res) => {res.render('admin/relatorios') });
 
     //Rota Login-----------------------------------------------------------------------------------
     router.post('/cliente/listCli/', routesController.login);

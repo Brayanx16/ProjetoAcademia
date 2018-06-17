@@ -58,8 +58,8 @@ a {
     height: 100%;
     width: 100%;
     position:absolute;
-    background-repeat: repeat;
     background-image: linear-gradient(rgb(255, 255, 255), rgb(38, 41, 48));
+    background-attachment: fixed;
 }
 
 .card-container.card {
