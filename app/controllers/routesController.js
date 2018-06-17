@@ -4,19 +4,14 @@ const controller = {};
 controller.login = (req, res) => {
   const email = req.body.email,
         senha = req.body.senha;
-        console.log(email);
-        console.log(senha);
-        
   req.getConnection((erro, conn) => {
-    conn.query('select * from admin where email = ? and senha = ?', [email, senha], (erro, results) => {
-      if (results == "") {
+    conn.query('select * from admin where email = ? and senha = ?', [email, senha], (erro, results) => {      
+      if (results == "") {        
         res.redirect('/login')
-      }else{
-        console.log(results);
+      } else {
         req.getConnection((erros, conn) => {
           conn.query('select * from cliente', (erros, admin) => {
            res.render('cliente/listCli', {data: admin});
-
           });
         });
       }
@@ -128,4 +123,105 @@ controller.deleteAdmin = (req, res) => {
   });
 };
 
+//Rotas do Usuario
+controller.listUsuario = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select * from cliente', (erros, admin) => {
+      res.render('usuario/listCli', {data: admin});
+    });
+  });
+};
+
+controller.addUsuario = (req, res) => {
+  const data = req.body;
+  req.getConnection((err, connection) => {
+    const query = connection.query('insert into funcionario set ?', data, (erros, customer) => {
+      res.redirect('/usuario/listCli');
+    });
+  });
+};
+
+controller.editUsuario = (req, res) => {
+  const { id } = req.params;
+  
+  req.getConnection((err, conn) => {
+    conn.query("select * from cliente where id = ?", [id], (err, rows) => {
+      res.render('usuario/editCli', {
+        data: rows[0]
+        
+      });
+    });
+  });
+};
+
+controller.updateUsuario = (req, res) => {
+  const { id } = req.params;
+  const newCustomer = req.body;
+  req.getConnection((err, conn) => {
+
+  conn.query('update cliente set ? where id = ?', [newCustomer, id], (err, rows) => {
+    res.redirect('/usuario/listCli');
+  });
+  });
+};
+
+controller.deleteUsuario = (req, res) => {
+  const { id } = req.params;
+  req.getConnection((err, connection) => {
+    connection.query('delete from cliente where id = ?', [id], (err, rows) => {
+      res.redirect('/usuario/listCli');
+    });
+  });
+};
+
+//Rotas Funcionario
+controller.listFun = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select * from funcionario', (erros, admin) => {
+      res.render('funcionario/listFun', {data: admin});
+    });
+  });
+};
+
+controller.addFuncionario = (req, res) => {
+  const data = req.body;
+  req.getConnection((err, connection) => {
+    const query = connection.query('insert into funcionario set ?', data, (erros, customer) => {
+      res.redirect('/funcionario/listFun');
+    });
+  });
+};
+
+controller.editFuncionario = (req, res) => {
+  const { idfuncionario } = req.params;
+  
+  req.getConnection((err, conn) => {
+    conn.query("select * from funcionario where idfuncionario = ?", [idfuncionario], (err, rows) => {
+      res.render('funcionario/editFun', {
+        data: rows[0]
+        
+      });
+    });
+  });
+}; 
+
+controller.updateFuncionario = (req, res) => {
+  const { idfuncionario } = req.params;
+  const newCustomer = req.body;
+  req.getConnection((err, conn) => {
+
+  conn.query('update funcionario set ? where idfuncionario = ?', [newCustomer, idfuncionario], (err, rows) => {
+    res.redirect('/funcionario/listFun');
+  });
+  });
+};
+
+controller.deleteFuncionario = (req, res) => {
+  const { idfuncionario } = req.params;
+  req.getConnection((err, connection) => {
+    connection.query('delete from funcionario where idfuncionario = ?', [idfuncionario], (err, rows) => {
+      res.redirect('/funcionario/listFun');
+    });
+  });
+};
 module.exports = controller;

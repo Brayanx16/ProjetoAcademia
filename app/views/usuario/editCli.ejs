@@ -32,7 +32,7 @@
                         <div class="side-menu-container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="/cliente/listCli"> <i class="fa fa-users fa-lg"></i> Clientes </a>
+                                    <a href="/usuario/listCli"> <i class="fa fa-users fa-lg"> Clientes </i>  </a>
                                 </li>
                             </ul>
                         </div>
@@ -47,7 +47,7 @@
                     Atualizar Dados do Clientes
                 </div>
                 <div class="panel-body">
-                    <form action="/update/<%= data.id %>" class="form-horizontal" method="POST">
+                    <form action="/update/usuario/<%= data.id %>" class="form-horizontal" method="POST">
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
@@ -151,7 +151,7 @@
                         <div class="form-group col-md-12">
                             <div class="col-md-12">
                                 <input type="submit" class="btn btn-primary" value="Confirmar">
-                                <a href="/cliente/listCli"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                                <a href="/usuario/listCli"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
                             </div>
                         </div>
                     </form>

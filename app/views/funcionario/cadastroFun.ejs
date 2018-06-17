@@ -34,13 +34,13 @@
                             <ul class="nav navbar-nav">
                                 <li class="panel panel-default" id="dropdown">
                                     <a data-toggle="collapse" href="#dropdown-lvl1">
-                                        <i class="fa fa-users fa-lg"> Clientes </i> <span class="caret"></span>
+                                        <i class="fa fa-users fa-lg"> Funcionários </i> <span class="caret"></span>
                                     </a>
                                     <div id="dropdown-lvl1" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                    <a href="/funcionario/listFun"> <i class="fa fa-user"> Funcionário </i></a>
+                                                    <a href="/usuario/listCli"> <i class="fa fa-user"> Clientes </i>  </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -57,7 +57,7 @@
                                                         <a href="/usuario/cadastroCli"> <i class="fa fa-user-plus"> Clientes </i></a>
                                                     </li>
                                                     <li>
-                                                        <a href="/funcionario/cadastroFun"> <i class="fa fa-user-plus"> Funcionário </i></a>
+                                                        <a href="/funcionario/cadastroFun"> <i class="fa fa-user-plus"> Funcionários </i></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -65,7 +65,7 @@
                                     </li>
                                 <li>
                                 <a href="#">
-                                    <i class="fa fa-book fa-lg"> Relatorios </i> </a>
+                                    <i class="fa fa-book fa-lg"> Relatorios </i></a>
                                 </li>   
                             </ul>
                         </div>
@@ -77,10 +77,10 @@
         <div class="col-md-10 content">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Cadastro de Clientes
+                    Cadastro de Funcionários
                 </div>
                 <div class="panel-body">
-                    <form action="/add/usuario" class="form-horizontal" method="POST">
+                    <form action="/add/funcionario" class="form-horizontal" method="POST">
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
@@ -118,70 +118,18 @@
                                     class="form-control input-md" required="">
                             </div>
                         </div>
-                        <!-- Select Basic -->
-                        <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="sexo">Sexo</label>
-                            <div class="col-md-10">
-                                <select id="sexo" name="sexo" class="form-control">
-                                    <option value="" disabled selected> Informe seu Sexo </option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Feminino">Feminino</option>
-                                    <option value="Outro">Outro</option>
-                                </select>
-                            </div>
-                        </div> 
                         <!-- Text input -->
                         <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="estado">Estado</label>
+                            <label class="col-md-2 control-label" for="cargo">Cargo</label>
                             <div class="col-md-10">
-                                <input id="estado" name="estado" type="text" placeholder="Estado" class="form-control input-md" required="">
+                                <input id="cargo" name="cargo" type="text"  placeholder="Cargo" class="form-control input-md" required="">
                             </div>
                         </div> 
-                        <!-- Text input -->
-                        <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="cidade">Cidade</label>
-                            <div class="col-md-10">
-                                <input id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
-                            </div>
-                        </div> 
-                        <!-- Text input -->
-                        <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="bairro">Bairro</label>
-                            <div class="col-md-10">
-                                <input id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control input-md" required="">
-                            </div>
-                        </div> 
-                        <!-- Text input -->
-                        <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="cep">CEP</label>
-                            <div class="col-md-10">
-                                <input id="cep" name="cep" type="text" maxlength="10" onkeypress="this.value = FormataCEP(event)" placeholder="CEP" class="form-control input-md" required="">
-                            </div>
-                        </div> 
-                    
-                        <!-- Text input -->
-                        <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="senha">Senha</label>
-                            <div class="col-md-10">
-                                <input id="senha" name="senha" type="text" placeholder="Senha" class="form-control input-md" required="">
-                            </div>
-                        </div> 
-                        <!-- Text input -->
-                        <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="plano">Plano</label>
-                            <div class="col-md-10">
-                                <select id="plano" name="plano" class="form-control">
-                                    <option value="" disabled selected> Informe seu Plano </option>
-                                    <option value="Básico">Básico</option>
-                                    <option value="Intermediário">Intermediário</option>
-                                    <option value="Musculação">Musculação</option>
-                                </select>
-                            </div>
-                        </div> 
-                            <div class="col-md-8">
-                                <input type="submit" class="btn btn-primary" value="Confirmar">
-                                <a href="/usuario/listCli"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
-                            </div>
+                        
+                        <div class="col-md-8">
+                            <input type="submit" class="btn btn-primary" value="Confirmar">
+                            <a href="/funcionario/listFun"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                        </div>
                         </div>
                     </form>
                 </div>
