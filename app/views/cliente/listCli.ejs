@@ -34,13 +34,13 @@
                         <ul class="nav navbar-nav">
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-lvl1">
-                                    <i class="fa fa-users fa-lg"></i> Clientes <span class="caret"></span>
+                                    <i class="fa fa-users fa-lg"> Clientes </i> <span class="caret"></span>
                                 </a>
                                 <div id="dropdown-lvl1" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li>
-                                                <a href="/admin/listAdmin"> <i class="fa fa-user"></i> Usuários</a>
+                                                <a href="/admin/listAdmin"> <i class="fa fa-user"> Usuários </i></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -49,23 +49,20 @@
                             <li>
                             <li class="panel panel-default" id="dropdown">
                                     <a data-toggle="collapse" href="#dropdown-lvl2">
-                                        <i class="fa fa-user-plus fa-lg"></i> Cadastro <span class="caret"></span>
+                                        <i class="fa fa-user-plus fa-lg"> Cadastro </i> <span class="caret"></span>
                                     </a>
                                     <div id="dropdown-lvl2" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                    <a href="/cliente/cadastroCli"> <i class="fa fa-user-plus"></i> Clientes</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/admin/cadastroAdmin"> <i class="fa fa-user-plus"></i> Usuários</a>
+                                                    <a href="/admin/cadastroAdmin"> <i class="fa fa-user-plus"> Usuários </i></a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </li>
                             <li>
-                            <a href="#"> <i class="fa fa-book fa-lg"></i> Relatorios </a>
+                            <a href="#"> <i class="fa fa-book fa-lg"> Relatorios </i></a>
                             </li>   
                         </ul>
                     </div>
@@ -86,7 +83,6 @@
                         <td><strong>CPF</strong></td> 
                         <td><strong>TELEFONE</strong></td>
                         <td><strong>PLANO</strong></td>
-                        <td><strong>AÇÕES</strong></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -96,10 +92,10 @@
                             <td><%=data[i].cpf %></td> 
                             <td><%=data[i].telefone %></td>
                             <td><%=data[i].plano %></td>
-                            <td class="text-center">
+                            <!--<td class="text-center">
                                 <a href="/delete/<%= data[i].id %>"><button class="btn btn-danger"> <i class="fa fa-user-times"></i> </button></a> 
                                 <a href='/update/<%= data[i].id %>'><button class="btn btn-primary"> <i class="fa fa-edit"></i></button></a>
-                            </td> 
+                            </td>--> 
                         </tr>
                     <%}%>
                 </tbody>

@@ -34,13 +34,13 @@
                             <ul class="nav navbar-nav">
                                 <li class="panel panel-default" id="dropdown">
                                     <a data-toggle="collapse" href="#dropdown-lvl1">
-                                        <i class="fa fa-users fa-lg"></i> Usuário <span class="caret"></span>
+                                        <i class="fa fa-users fa-lg"> Usuário </i>  <span class="caret"></span>
                                     </a>
                                     <div id="dropdown-lvl1" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                   <a href="/cliente/listCli"> <i class="fa fa-user"></i> Cliente </a>
+                                                   <a href="/cliente/listCli"> <i class="fa fa-user"> Cliente </i> </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -48,24 +48,21 @@
                                 </li>
                                 <li class="panel panel-default" id="dropdown">
                                     <a data-toggle="collapse" href="#dropdown-lvl2">
-                                        <i class="fa fa-user-plus fa-lg"></i> Cadastro <span class="caret"></span>
+                                        <i class="fa fa-user-plus fa-lg"> Cadastro </i> <span class="caret"></span>
                                     </a>
                                     
                                     <div id="dropdown-lvl2" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                    <a href="/cliente/cadastroCli"><i class="fa fa-user-plus"></i> Clientes</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/admin/cadastroAdmin"><i class="fa fa-user-plus"></i> Usuários</a>
+                                                    <a href="/admin/cadastroAdmin"><i class="fa fa-user-plus"> Usuários </i></a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <li>
                                         <a href="#">
-                                        <i class="fa fa-book fa-lg"></i> Relatorios </a>
+                                        <i class="fa fa-book fa-lg"> Relatorios </i></a>
                                     </li>   
                                 </li>
                             </ul>
@@ -86,6 +83,22 @@
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
                                 <input id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="rg">RG</label>
+                            <div class="col-md-10">
+                                <input id="rg" type="text" name="rg" maxlength="8"  placeholder="x.xxx.xxx"
+                                    class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="cpf">CPF</label>
+                            <div class="col-md-10">
+                                <input id="cpf" type="text" name="cpf" maxlength="14" onkeypress= "this.value = FormataCPF(event)" placeholder="xxx.xxx.xxx-xx"
+                                    class="form-control input-md" required="">
                             </div>
                         </div>
                         <!-- Text input -->

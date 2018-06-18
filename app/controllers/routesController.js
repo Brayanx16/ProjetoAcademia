@@ -95,7 +95,7 @@ controller.listAdmin = (req, res) => {
   const data = req.body;
   
   req.getConnection((erro, conn) => {
-    conn.query('select * from admin', (erros, admin) => {
+    conn.query('select * from usuario', (erros, admin) => {
       res.render('admin/listAdmin', {data: admin});
     });
   });
@@ -104,17 +104,17 @@ controller.listAdmin = (req, res) => {
 controller.addAdmin = (req, res) => {
   const data = req.body;
   req.getConnection((err, connection) => {
-    const query = connection.query('insert into admin set ?', data, (erros, customer) => {
+    const query = connection.query('insert into usuario set ?', data, (erros, customer) => {
       res.redirect('/admin/listAdmin');
     });
   });
 };
 
 controller.editAdmin = (req, res) => {
-  const { idadmin } = req.params;
+  const { idUsuario } = req.params;
   
   req.getConnection((err, conn) => {
-    conn.query("select * from admin where idadmin = ?", [idadmin], (err, rows) => {
+    conn.query("select * from usuario where idUsuario = ?", [idUsuario], (err, rows) => {
       res.render('admin/editAdmin', {
         data: rows[0]
       });
@@ -123,21 +123,21 @@ controller.editAdmin = (req, res) => {
 };
 
 controller.updateAdmin = (req, res) => {
-  const { idadmin } = req.params;
+  const { idUsuario } = req.params;
   const newCustomer = req.body;
   
   req.getConnection((err, conn) => {
 
-  conn.query('update admin set ? where idadmin = ?', [newCustomer, idadmin], (err, rows) => {
+  conn.query('update usuario set ? where idUsuario = ?', [newCustomer, idUsuario], (err, rows) => {
       res.redirect('/admin/listAdmin');
     });
   });
 };
 
 controller.deleteAdmin = (req, res) => {
-  const { idadmin } = req.params;
+  const { idUsuario } = req.params;
   req.getConnection((err, connection) => {
-    connection.query('delete from admin where idadmin = ?', [idadmin], (err, rows) => {
+    connection.query('delete from usuario where idUsuario = ?', [idUsuario], (err, rows) => {
       res.redirect('/admin/listAdmin');
     });
   });
@@ -244,4 +244,5 @@ controller.deleteFuncionario = (req, res) => {
     });
   });
 };
+
 module.exports = controller;

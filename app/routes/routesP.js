@@ -30,11 +30,11 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/admin/cadastroAdmin', (req, res) => { res.render('admin/cadastroAdmin') });
     //---------------------------------------------------------------------------------------------
-    router.get('/update/admin/:idadmin', routesController.editAdmin);
+    router.get('/update/admin/:idUsuario', routesController.editAdmin);
     //---------------------------------------------------------------------------------------------
-    router.post('/update/admin/:idadmin', routesController.updateAdmin);
+    router.post('/update/admin/:idUsuario', routesController.updateAdmin);
     //---------------------------------------------------------------------------------------------
-    router.get('/delete/admin/:idadmin', routesController.deleteAdmin);
+    router.get('/delete/admin/:idUsuario', routesController.deleteAdmin);
     //---------------------------------------------------------------------------------------------
     router.get('/admin/relatorios', (req, res) => {res.render('admin/relatorios') });
     //---------------------------------------------------------------------------------------------
