@@ -5,13 +5,33 @@ controller.login = (req, res) => {
   const email = req.body.email,
         senha = req.body.senha;
   req.getConnection((erro, conn) => {
-    conn.query('select * from admin where email = ? and senha = ?', [email, senha], (erro, results) => {      
-      if (results == "") {        
+    conn.query('select * from admin where email = ? and senha = ?', [email, senha], (erro, results) => {
+      if(results == ""){  
         res.redirect('/login')
-      } else {
+      }else {
         req.getConnection((erros, conn) => {
           conn.query('select * from cliente', (erros, admin) => {
            res.render('cliente/listCli', {data: admin});
+
+          });
+        });
+      }
+    });
+  });
+};
+
+controller.loginUsuario = (req, res) => {
+  const email = req.body.email,
+        senha = req.body.senha;
+  req.getConnection((erro, conn) => {
+    conn.query('select * from usuario where email = ? and senha = ?', [email, senha], (erro, results) => {
+      if(results == ""){  
+        res.redirect('/loginUsuario')
+      }else {
+        req.getConnection((erros, conn) => {
+          conn.query('select * from cliente', (erros, admin) => {
+           res.render('usuario/listCli', {data: admin});
+
           });
         });
       }

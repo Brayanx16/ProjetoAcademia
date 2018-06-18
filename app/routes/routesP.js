@@ -4,9 +4,8 @@ const routesController = require('../controllers/routesController');
     //Rodas da Pagina------------------------------------------------------------------------------
     router.get('/', (req, res) => { res.render('pages/home') });
     //---------------------------------------------------------------------------------------------
-    router.get('/login', (req, res) => { res.render('pages/login') });
-    //---------------------------------------------------------------------------------------------
     router.get('/planos', (req, res) => { res.render('pages/planos') });
+
 
     //Rotas Cliente--------------------------------------------------------------------------------
     router.get('/admin/homeAdmin', (req, res) => { res.render('admin/homeAdmin') })
@@ -23,6 +22,7 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/delete/:id', routesController.delete);
 
+
     //Rotas Admin ---------------------------------------------------------------------------------
     router.get('/admin/listAdmin', routesController.listAdmin);
     //---------------------------------------------------------------------------------------------
@@ -37,6 +37,9 @@ const routesController = require('../controllers/routesController');
     router.get('/delete/admin/:idadmin', routesController.deleteAdmin);
     //---------------------------------------------------------------------------------------------
     router.get('/admin/relatorios', (req, res) => {res.render('admin/relatorios') });
+    //---------------------------------------------------------------------------------------------
+    router.get('/login', (req, res) => { res.render('pages/login') });
+
 
     //Rotas Usuario -------------------------------------------------------------------------------
     router.get('/usuario/listCli', routesController.listUsuario);
@@ -52,8 +55,11 @@ const routesController = require('../controllers/routesController');
     router.get('/delete/usuario/:id', routesController.deleteUsuario);
     //---------------------------------------------------------------------------------------------
     router.get('/usuario/relatorios', (req, res) => {res.render('usuario/relatorios') });
+    //---------------------------------------------------------------------------------------------
+    router.get('/loginUsuario', (req, res) => { res.render('pages/loginUsuario') });
 
-    //Rotas Funcionarios -------------------------------------------------------------------------------
+
+    //Rotas Treinador -----------------------------------------------------------------------------
     router.get('/funcionario/listFun', routesController.listFun);
     //---------------------------------------------------------------------------------------------
     router.get('/funcionario/cadastroFun', (req, res) => { res.render('funcionario/cadastroFun') });
@@ -65,8 +71,15 @@ const routesController = require('../controllers/routesController');
     router.post('/update/funcionario/:idfuncionario', routesController.updateFuncionario);
     //---------------------------------------------------------------------------------------------
     router.get('/delete/funcionario/:idfuncionario', routesController.deleteFuncionario);
+    //---------------------------------------------------------------------------------------------
+    router.get('/loginTrei', (req, res) => { res.render('pages/loginTrei') });
+
 
     //Rota Login-----------------------------------------------------------------------------------
     router.post('/cliente/listCli/', routesController.login);
+    //Rota LoginUsuario----------------------------------------------------------------------------
+    router.post('/usuario/listCli/', routesController.loginUsuario);
+    //Rota LoginTreinador--------------------------------------------------------------------------
+    //router.post('/usuario/listCli/', routesController.loginUsuario);
 
 module.exports = router;
