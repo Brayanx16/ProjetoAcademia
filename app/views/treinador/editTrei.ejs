@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
         <div class="container">
             <div class="navbar-brand">
                 <img class="navbar-brand-acad" src="/img/logo@2x.png">
@@ -19,78 +19,47 @@
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
     
     <div class="container-fluid main-container">
-        <div class="col-md-2 sidebar">
+         <div class="col-md-2 sidebar">
             <div class="row">
                 <!-- Menu -->
-                <div class="side-menu">
+                <div>
                     <nav class="navbar navbar-default" role="navigation">
                         <!-- Main Menu -->
                         <div class="side-menu-container">
                             <ul class="nav navbar-nav">
-                                <li class="panel panel-default" id="dropdown">
-                                    <a data-toggle="collapse" href="#dropdown-lvl1">
-                                        <i class="fa fa-users fa-lg"> Treinadores </i> <span class="caret"></span>
-                                    </a>
-                                    <div id="dropdown-lvl1" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul class="nav navbar-nav">
-                                                <li>
-                                                    <a href="/usuario/listCli"> <i class="fa fa-user"> Clientes </i>  </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="panel panel-default" id="dropdown">
-                                        <a data-toggle="collapse" href="#dropdown-lvl2">
-                                            <i class="fa fa-user-plus fa-lg"> Cadastro </i> <span class="caret"></span>
-                                        </a>
-                                        <div id="dropdown-lvl2" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <ul class="nav navbar-nav">
-                                                    <li>
-                                                        <a href="/usuario/cadastroCli"> <i class="fa fa-user-plus"> Clientes </i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/funcionario/cadastroFun"> <i class="fa fa-user-plus"> Treinadores </i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
                                 <li>
-                                <a href="#">
-                                    <i class="fa fa-book fa-lg"> Relatorios </i></a>
-                                </li>   
+                                    <a href="/treinador/listTrei"> <i class="fa fa-users fa-lg"> Treinador </i> </a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
             </div>
-        </div>  
+        </div>   
     
         <div class="col-md-10 content">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Cadastro de Treinadores
+                    Atualizar Dados do Treinadores
                 </div>
                 <div class="panel-body">
-                    <form action="/add/funcionario" class="form-horizontal" method="POST">
+                    <form action="/update/treinador/<%= data.idTreinador %>" class="form-horizontal" method="POST">
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
-                                <input id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
+                                <input id="nome" value="<%= data.nome %>" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
                             </div>
                         </div>
                         <!-- Text input -->
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="rg">RG</label>
                             <div class="col-md-10">
-                                <input id="rg" type="text" name="rg" maxlength="8"  placeholder="x.xxx.xxx"
+                                <input id="rg" value="<%= data.rg %>"  type="text" name="rg" maxlength="8"  placeholder="x.xxx.xxx"
                                     class="form-control input-md" required="">
                             </div>
                         </div>
@@ -98,7 +67,7 @@
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="cpf">CPF</label>
                             <div class="col-md-10">
-                                <input id="cpf" type="text" name="cpf" maxlength="14" onkeypress= "this.value = FormataCPF(event)" placeholder="xxx.xxx.xxx-xx"
+                                <input id="cpf" value="<%= data.cpf %>"  type="text" name="cpf" maxlength="14" onkeypress= "this.value = FormataCPF(event)" placeholder="xxx.xxx.xxx-xx"
                                     class="form-control input-md" required="">
                             </div>
                         </div>
@@ -106,28 +75,35 @@
                         <div class="form-group col-md-5">
                           <label class="col-md-2 control-label" for="email">Email</label>
                           <div class="col-md-10">
-                              <input id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
+                              <input id="email" value="<%= data.email %>"  name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
                           </div>
                         </div> 
                         <!-- Text input-->
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="telefone">Tel.</label>
                             <div class="col-md-10">
-                                <input id="telefone" type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
+                                <input id="telefone" value="<%= data.telefone %>"  type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
                                     class="form-control input-md" required="">
                             </div>
                         </div>
                         <!-- Text input -->
                         <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="senha">Senha</label>
+                            <div class="col-md-10">
+                                <input value="<%= data.senha %>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
+                            </div>
+                        </div> 
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="cargo">Cargo</label>
                             <div class="col-md-10">
-                                <input id="cargo" name="cargo" type="text"  placeholder="Cargo" class="form-control input-md" required="">
+                                <input id="cargo" value="<%= data.cargo %>"  name="cargo" type="text"  placeholder="Cargo" class="form-control input-md" required="">
                             </div>
                         </div> 
                         
                         <div class="col-md-8">
                             <input type="submit" class="btn btn-primary" value="Confirmar">
-                            <a href="/funcionario/listFun"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                            <a href="/treinador/listTrei"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
                         </div>
                         </div>
                     </form>

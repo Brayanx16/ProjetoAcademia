@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse">			
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/login"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
+                        <a href="/loginUsuario"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
                     </li>
                 </ul>
             </div>
@@ -32,7 +32,7 @@
                         <div class="side-menu-container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="/cliente/listCli"> <i class="fa fa-users fa-lg"></i> Clientes </a>
+                                    <a href="/cliente/listCli"> <i class="fa fa-users fa-lg"> Clientes </i> </a>
                                 </li>
                             </ul>
                         </div>
@@ -47,11 +47,18 @@
                     Atualizar Dados do Clientes
                 </div>
                 <div class="panel-body">
-                    <form action="/update/<%= data.id %>" class="form-horizontal" method="POST">
+                    <form action="/update/cliente/<%= data.idCliente %>" class="form-horizontal" method="POST">
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
                                 <input value="<%= data.nome %>" id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="idade">Idade</label>
+                            <div class="col-md-10">
+                                <input value="<%= data.idade %>" id="idade" type="number" name="idade" placeholder="Nome do usuário" class="form-control input-md" required="">
                             </div>
                         </div>
                         <!-- Text input-->
@@ -74,7 +81,7 @@
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="email">Email</label>
                             <div class="col-md-10">
-                                <input value="<%= data.email %>" id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
+                                <input value="<%= data.email %>" id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md">
                             </div>
                         </div> 
                         <!-- Text input-->
@@ -131,7 +138,7 @@
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="senha">Senha</label>
                             <div class="col-md-10">
-                                <input value="<%= data.senha %>" id="senha" name="senha" type="text" placeholder="Senha" class="form-control input-md" required="">
+                                <input value="<%= data.senha %>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
                             </div>
                         </div>
                         <!-- Text input -->

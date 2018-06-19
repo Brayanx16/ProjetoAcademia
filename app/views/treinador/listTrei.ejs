@@ -40,7 +40,10 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li>
-                                                <a href="/usuario/listCli"> <i class="fa fa-user"> Clientes </i> </a>
+                                                <a href="/cliente/listCli"> <i class="fa fa-user"> Clientes </i> </a>
+                                            </li>
+                                            <li>
+                                                <a href="/usuario/listUse"> <i class="fa fa-user"> Usuario </i> </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -55,10 +58,13 @@
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                    <a href="/usuario/cadastroCli"> <i class="fa fa-user-plus"> Clientes </i></a>
+                                                    <a href="/cliente/cadastroCli"> <i class="fa fa-user-plus"> Clientes </i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="/funcionario/cadastroFun"> <i class="fa fa-user-plus"> Treinadores </i></a>
+                                                    <a href="/admin/cadastroAdmin"> <i class="fa fa-user-plus"> Usuários </i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="/treinador/cadastroTrei"> <i class="fa fa-user-plus"> Treinador </i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -97,8 +103,12 @@
                             <td><%=data[i].telefone %></td>
                             <td><%=data[i].cargo %></td>
                             <td class="text-center">
-                                <a href="/delete/funcionario/<%= data[i].idfuncionario %>"><button class="btn btn-danger"> <i class="fa fa-user-times"></i> </button></a> 
-                                <a href='/update/funcionario/<%= data[i].idfuncionario %>'><button class="btn btn-primary"> <i class="fa fa-edit"></i></button></a>
+                                <a href="/delete/treinador/<%= data[i].idTreinador %>">
+                                    <button class="btn btn-danger" data-toggle="tooltip" title="Delete"> <i class="fa fa-user-times"></i> </button>
+                                </a> 
+                                <a href='/update/treinador/<%= data[i].idTreinador %>'>
+                                    <button class="btn btn-primary" data-toggle="tooltip" title="Edit"> <i class="fa fa-edit"></i></button>
+                                </a>
                             </td> 
                         </tr>
                     <%}%>

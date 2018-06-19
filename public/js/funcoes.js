@@ -1,3 +1,6 @@
+
+$('[data-toggle="tooltip"]').tooltip();
+
 function verificaNumero(e) {
     if (e.whitch != 8 && e.whitch != 0 && (e.whitch < 48 || e.whitch > 57)) {
         return false;
@@ -49,3 +52,4 @@ $(document).ready(function () {
     });
 
 });
+

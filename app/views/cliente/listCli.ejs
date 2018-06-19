@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse">			
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/login"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
+                    <a href="/loginUsuario"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
                 </li>
             </ul>
         </div>
@@ -40,7 +40,10 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li>
-                                                <a href="/admin/listAdmin"> <i class="fa fa-user"> Usuários </i></a>
+                                                <a href="/usuario/listUse"> <i class="fa fa-user"> Usuários </i></a>
+                                            </li>
+                                            <li>
+                                                <a href="/treinador/listTrei"> <i class="fa fa-user"> Treinador </i></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -55,7 +58,15 @@
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                    <a href="/admin/cadastroAdmin"> <i class="fa fa-user-plus"> Usuários </i></a>
+                                                    <a href="/cliente/cadastroCli"> <i class="fa fa-user-plus"> Clientes </i></a>
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="/usuario/cadastroUse"> <i class="fa fa-user-plus"> Usuários </i></a>
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="/treinador/cadastroTrei"> <i class="fa fa-user-plus"> Treinador </i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -80,22 +91,29 @@
                 <thead>
                     <tr>
                         <td><strong>NOME</strong></td>
+                        <td><strong>IDADE</strong></td>
                         <td><strong>CPF</strong></td> 
                         <td><strong>TELEFONE</strong></td>
                         <td><strong>PLANO</strong></td>
+                        <td><strong>AÇÕES</strong></td>
                     </tr>
                 </thead>
                 <tbody>
                     <%for(var i = 0; i < data.length; i++) {%>
                         <tr>
                             <td><%=data[i].nome %></td>
+                            <td><%=data[i].idade %></td>
                             <td><%=data[i].cpf %></td> 
                             <td><%=data[i].telefone %></td>
                             <td><%=data[i].plano %></td>
-                            <!--<td class="text-center">
-                                <a href="/delete/<%= data[i].id %>"><button class="btn btn-danger"> <i class="fa fa-user-times"></i> </button></a> 
-                                <a href='/update/<%= data[i].id %>'><button class="btn btn-primary"> <i class="fa fa-edit"></i></button></a>
-                            </td>--> 
+                            <td class="text-center">
+                                <a href="/delete/cliente/<%= data[i].idCliente %>">
+                                    <button class="btn btn-danger" data-toggle="tooltip" title="Delete"> <i class="fa fa-user-times"></i></button>
+                                </a> 
+                                <a href='/update/cliente/<%= data[i].idCliente %>'>
+                                    <button class="btn btn-primary" data-toggle="tooltip" title="Edit"> <i class="fa fa-edit"></i></button>
+                                </a>
+                            </td>
                         </tr>
                     <%}%>
                 </tbody>

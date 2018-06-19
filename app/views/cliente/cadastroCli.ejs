@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse">			
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/login"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
+                        <a href="/loginUsuario"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
                     </li>
                 </ul>
             </div>
@@ -34,13 +34,19 @@
                             <ul class="nav navbar-nav">
                                 <li class="panel panel-default" id="dropdown">
                                     <a data-toggle="collapse" href="#dropdown-lvl1">
-                                        <i class="fa fa-users fa-lg"></i> Clientes <span class="caret"></span>
+                                        <i class="fa fa-users fa-lg"> Clientes </i> <span class="caret"></span>
                                     </a>
                                     <div id="dropdown-lvl1" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <ul class="nav navbar-nav">
                                                 <li>
-                                                    <a href="/admin/listAdmin"> <i class="fa fa-user"></i> Usuário </a>
+                                                    <a href="/usuario/listUse"> <i class="fa fa-user"> Usuário </i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="/cliente/listCli"> <i class="fa fa-user"> Clientes </i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="/treinador/listTrei"> <i class="fa fa-user"> Treinador </i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -48,16 +54,16 @@
                                 </li>
                                 <li class="panel panel-default" id="dropdown">
                                         <a data-toggle="collapse" href="#dropdown-lvl2">
-                                            <i class="fa fa-user-plus fa-lg"></i> Cadastro <span class="caret"></span>
+                                            <i class="fa fa-user-plus fa-lg"> Cadastro </i> <span class="caret"></span>
                                         </a>
                                         <div id="dropdown-lvl2" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul class="nav navbar-nav">
                                                     <li>
-                                                        <a href="/cliente/cadastroCli"> <i class="fa fa-user-plus"></i> Clientes</a>
+                                                        <a href="/usuario/cadastroUse"> <i class="fa fa-user-plus"> Usuários </i> </a>
                                                     </li>
                                                     <li>
-                                                        <a href="/admin/cadastroAdmin"> <i class="fa fa-user-plus"></i> Usuários</a>
+                                                        <a href="/treinador/cadastroTrei"> <i class="fa fa-user-plus"> Treinador </i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -65,7 +71,7 @@
                                     </li>
                                 <li>
                                 <a href="#">
-                                    <i class="fa fa-book fa-lg"></i> Relatorios </a>
+                                    <i class="fa fa-book fa-lg"> Relatorios </i> </a>
                                 </li>   
                             </ul>
                         </div>
@@ -80,7 +86,7 @@
                     Cadastro de Clientes
                 </div>
                 <div class="panel-body">
-                    <form action="/add" class="form-horizontal" method="POST">
+                    <form action="/add/cliente" class="form-horizontal" method="POST">
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
@@ -89,10 +95,16 @@
                         </div>
                         <!-- Text input -->
                         <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="idade">Idade</label>
+                            <div class="col-md-10">
+                                <input id="idade" type="number" name="idade" placeholder="Idade do usuário" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="rg">RG</label>
                             <div class="col-md-10">
-                                <input id="rg" type="text" name="rg" maxlength="8"  placeholder="x.xxx.xxx"
-                                    class="form-control input-md" required="">
+                                <input id="rg" type="text" name="rg" maxlength="12"  placeholder="x.xxx.xxx" class="form-control input-md" required="">
                             </div>
                         </div>
                         <!-- Text input-->
@@ -107,7 +119,7 @@
                         <div class="form-group col-md-5">
                           <label class="col-md-2 control-label" for="email">Email</label>
                           <div class="col-md-10">
-                              <input id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
+                              <input id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md">
                           </div>
                         </div> 
                         <!-- Text input-->
@@ -158,14 +170,20 @@
                                 <input id="cep" name="cep" type="text" maxlength="10" onkeypress="this.value = FormataCEP(event)" placeholder="CEP" class="form-control input-md" required="">
                             </div>
                         </div> 
-                    
                         <!-- Text input -->
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="senha">Senha</label>
                             <div class="col-md-10">
-                                <input id="senha" name="senha" type="text" placeholder="Senha" class="form-control input-md" required="">
+                                <input id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
                             </div>
-                        </div> 
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group col-md-5">
+                            <label class="col-md-2 control-label" for="confirmarSenha">C.Senha</label>
+                            <div class="col-md-10">
+                                <input id="confirmarSenha" name="confirmarSenha" type="password" placeholder="Confirme sua Senha" class="form-control input-md" required="">
+                            </div>
+                        </div>
                         <!-- Text input -->
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="plano">Plano</label>

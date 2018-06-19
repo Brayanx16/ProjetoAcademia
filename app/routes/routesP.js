@@ -6,80 +6,60 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/planos', (req, res) => { res.render('pages/planos') });
 
+    
+    //Rota Login-----------------------------------------------------------------------------------
+    router.post('/cliente/listCli/', routesController.loginUsuario);
+    //Rota LoginTreinador--------------------------------------------------------------------------
+    router.post('/treinador/listCli/', routesController.loginTrei);
 
-    //Rotas Cliente--------------------------------------------------------------------------------
-    router.get('/admin/homeAdmin', (req, res) => { res.render('admin/homeAdmin') })
-    //---------------------------------------------------------------------------------------------
-    router.get('/cliente/listCli', routesController.list);
-    //---------------------------------------------------------------------------------------------
-    router.post('/add', routesController.add);
-    //---------------------------------------------------------------------------------------------
-    router.get('/cliente/cadastroCli', (req, res) => { res.render('cliente/cadastroCli') });
-    //---------------------------------------------------------------------------------------------
-    router.get('/update/:id', routesController.edit);
-    //---------------------------------------------------------------------------------------------
-    router.post('/update/:id', routesController.update);
-    //---------------------------------------------------------------------------------------------
-    router.get('/delete/:id', routesController.delete);
-
-
-    //Rotas Admin ---------------------------------------------------------------------------------
-    router.get('/admin/listAdmin', routesController.listAdmin);
-    //---------------------------------------------------------------------------------------------
-    router.post('/add/admin', routesController.addAdmin);
-    //---------------------------------------------------------------------------------------------
-    router.get('/admin/cadastroAdmin', (req, res) => { res.render('admin/cadastroAdmin') });
-    //---------------------------------------------------------------------------------------------
-    router.get('/update/admin/:idUsuario', routesController.editAdmin);
-    //---------------------------------------------------------------------------------------------
-    router.post('/update/admin/:idUsuario', routesController.updateAdmin);
-    //---------------------------------------------------------------------------------------------
-    router.get('/delete/admin/:idUsuario', routesController.deleteAdmin);
-    //---------------------------------------------------------------------------------------------
-    router.get('/admin/relatorios', (req, res) => {res.render('admin/relatorios') });
-    //---------------------------------------------------------------------------------------------
-    router.get('/login', (req, res) => { res.render('pages/login') });
-
-
+    
     //Rotas Usuario -------------------------------------------------------------------------------
-    router.get('/usuario/listCli', routesController.listUsuario);
-    //---------------------------------------------------------------------------------------------
-    router.get('/usuario/cadastroCli', (req, res) => { res.render('usuario/cadastroCli') });
+    router.get('/usuario/listUse', routesController.listUsuario);
     //---------------------------------------------------------------------------------------------
     router.post('/add/usuario', routesController.addUsuario);
     //---------------------------------------------------------------------------------------------
-    router.get('/update/usuario/:id', routesController.editUsuario);
+    router.get('/usuario/cadastroUse', (req, res) => { res.render('usuario/cadastroUse') });
     //---------------------------------------------------------------------------------------------
-    router.post('/update/usuario/:id', routesController.updateUsuario);
+    router.get('/update/usuario/:idUsuario', routesController.editUsuario);
     //---------------------------------------------------------------------------------------------
-    router.get('/delete/usuario/:id', routesController.deleteUsuario);
+    router.post('/update/usuario/:idUsuario', routesController.updateUsuario);
+    //---------------------------------------------------------------------------------------------
+    router.get('/delete/usuario/:idUsuario', routesController.deleteUsuario);
     //---------------------------------------------------------------------------------------------
     router.get('/usuario/relatorios', (req, res) => {res.render('usuario/relatorios') });
     //---------------------------------------------------------------------------------------------
     router.get('/loginUsuario', (req, res) => { res.render('pages/loginUsuario') });
 
 
+    //Rotas Cliente--------------------------------------------------------------------------------
+    router.get('/cliente/listCli', routesController.listCliente);
+    //---------------------------------------------------------------------------------------------
+    router.post('/add/cliente', routesController.addCliente);
+    //---------------------------------------------------------------------------------------------
+    router.get('/cliente/cadastroCli', (req, res) => { res.render('cliente/cadastroCli') });
+    //---------------------------------------------------------------------------------------------
+    router.get('/update/cliente/:idCliente', routesController.editCliente);
+    //---------------------------------------------------------------------------------------------
+    router.post('/update/cliente/:idCliente', routesController.updateCliente);
+    //---------------------------------------------------------------------------------------------
+    router.get('/delete/cliente/:idCliente', routesController.deleteCliente);
+
+
     //Rotas Treinador -----------------------------------------------------------------------------
-    router.get('/funcionario/listFun', routesController.listFun);
+    router.get('/treinador/listTrei', routesController.listTreinador);
     //---------------------------------------------------------------------------------------------
-    router.get('/funcionario/cadastroFun', (req, res) => { res.render('funcionario/cadastroFun') });
+    router.get('/treinador/cadastroTrei', (req, res) => { res.render('treinador/cadastroTrei') });
     //---------------------------------------------------------------------------------------------
-    router.post('/add/funcionario', routesController.addFuncionario);
+    router.post('/add/treinador', routesController.addTreinador);
     //---------------------------------------------------------------------------------------------
-    router.get('/update/funcionario/:idfuncionario', routesController.editFuncionario);
+    router.get('/update/treinador/:idtreinador', routesController.editTreinador);
     //---------------------------------------------------------------------------------------------
-    router.post('/update/funcionario/:idfuncionario', routesController.updateFuncionario);
+    router.post('/update/treinador/:idtreinador', routesController.updateTreinador);
     //---------------------------------------------------------------------------------------------
-    router.get('/delete/funcionario/:idfuncionario', routesController.deleteFuncionario);
+    router.get('/delete/treinador/:idtreinador', routesController.deleteTreinador);
     //---------------------------------------------------------------------------------------------
     router.get('/loginTrei', (req, res) => { res.render('pages/loginTrei') });
 
 
-    //Rota Login-----------------------------------------------------------------------------------
-    router.post('/cliente/listCli/', routesController.login);
-    //Rota LoginUsuario----------------------------------------------------------------------------
-    router.post('/usuario/listCli/', routesController.loginUsuario);
-    //Rota LoginTreinador--------------------------------------------------------------------------
-    //router.post('/usuario/listCli/', routesController.loginUsuario);
 
 module.exports = router;

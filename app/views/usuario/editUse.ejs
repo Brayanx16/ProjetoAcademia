@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse">			
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/login"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
+                        <a href="/loginUsuario"><button class="btn btn-danger glyphicon glyphicon-log-out"> Sair </button></a>
                     </li>
                 </ul>
             </div>
@@ -33,8 +33,8 @@
                         <div class="side-menu-container">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="/admin/listAdmin">
-                                    <i class="fa fa-users fa-lg"></i> Usuário </a>
+                                    <a href="/usuario/listUse">
+                                    <i class="fa fa-users fa-lg"> Usuário </i> </a>
                                 </li>
                             </ul>
                         </div>
@@ -49,7 +49,7 @@
                     Atualizar Dados do Usuário
                 </div>
                 <div class="panel-body">
-                    <form action="/update/admin/<%= data.idUsuario %>" class="form-horizontal" method="POST">
+                    <form action="/update/usuario/<%= data.idUsuario %>" class="form-horizontal" method="POST">
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="nome">Nome</label>
                             <div class="col-md-10">
@@ -81,7 +81,7 @@
                         <div class="form-group col-md-12">
                             <div class="col-md-12">
                                 <input type="submit" class="btn btn-primary" value="Confirmar">
-                                <a href="/admin/listAdmin"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
+                                <a href="/usuario/listUse"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
                             </div>
                         </div>
                     </form>
