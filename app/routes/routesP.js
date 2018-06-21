@@ -8,12 +8,14 @@ const routesController = require('../controllers/routesController');
 
     
     //Rota Login-----------------------------------------------------------------------------------
-    router.post('/cliente/listCli/', routesController.loginUsuario);
+    router.post('/usuario/listUse/', routesController.loginUsuario);
     //Rota LoginTreinador--------------------------------------------------------------------------
     router.post('/treinador/listCli/', routesController.loginTrei);
 
     
     //Rotas Usuario -------------------------------------------------------------------------------
+    router.get('/loginUsuario', (req, res) => { res.render('pages/loginUsuario') });
+    //---------------------------------------------------------------------------------------------
     router.get('/usuario/listUse', routesController.listUsuario);
     //---------------------------------------------------------------------------------------------
     router.post('/add/usuario', routesController.addUsuario);
@@ -26,10 +28,8 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/delete/usuario/:idUsuario', routesController.deleteUsuario);
     //---------------------------------------------------------------------------------------------
-    router.get('/usuario/relatorios', (req, res) => {res.render('usuario/relatorios') });
-    //---------------------------------------------------------------------------------------------
-    router.get('/loginUsuario', (req, res) => { res.render('pages/loginUsuario') });
-
+    router.get('/relatorios/listCli/', routesController.listCliRelatorios);
+    
 
     //Rotas Cliente--------------------------------------------------------------------------------
     router.get('/cliente/listCli', routesController.listCliente);

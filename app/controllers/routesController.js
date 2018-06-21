@@ -9,9 +9,11 @@ controller.loginUsuario = (req, res) => {
       if(results == ""){  
         res.redirect('/loginUsuario')
       }else {
+        console.log(results);
+
         req.getConnection((erros, conn) => {
-          conn.query('select * from cliente', (erros, admin) => {
-           res.render('cliente/listCli', {data: admin});
+          conn.query('select * from usuario', (erros, admin) => {
+           res.render('usuario/listUse', {data: admin});
 
           });
         });
@@ -26,12 +28,8 @@ controller.loginTrei = (req, res) => {
   req.getConnection((erro, conn) => {
     conn.query('select * from treinador where email = ? and senha = ?', [email, senha], (erro, results) => {
       if(results == ""){  
-        console.log(email);
-        
         res.redirect('/loginTrei')
       }else {
-        console.log(results);
-        
         req.getConnection((erros, conn) => {
           conn.query('select * from cliente', (erros, admin) => {
            res.render('treinador/listCli', {data: admin});
@@ -49,12 +47,15 @@ controller.listUsuario = (req, res) => {
   req.getConnection((erro, conn) => {
     conn.query('select * from usuario', (erros, admin) => {
       res.render('usuario/listUse', {data: admin});
+      
     });
   });
 };
 
 controller.addUsuario = (req, res) => {
   const data = req.body;
+  console.log(data);
+  
   req.getConnection((err, connection) => {
     const query = connection.query('insert into usuario set ?', data, (erros, customer) => {
       res.redirect('/usuario/listUse');
@@ -95,6 +96,15 @@ controller.deleteUsuario = (req, res) => {
   });
 };
 
+controller.listCliRelatorios = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select * from cliente', (erros, admin) => {
+      res.render('relatorios/listCli', {data: admin});
+    });
+  });
+};
+
+
 
 // Rodas do Cliente
 controller.listCliente = (req, res) => {
@@ -107,6 +117,8 @@ controller.listCliente = (req, res) => {
 
 controller.addCliente = (req, res) => {
   const data = req.body;
+  console.log(data);
+  
   req.getConnection((err, connection) => {
     const query = connection.query('insert into cliente set ?', data, (erros, customer) => {
       res.redirect('/cliente/listCli');

@@ -8,11 +8,11 @@
             </a>
         </div>
         <ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
+             <li>
+                <a href="/LoginUsuario"> <i class="fa fa-address-card"></i> Usuario </a>
+            </li>
             <li class="active">
                 <a href="/loginTrei"> <i class="fa fa-address-card"></i> Treinador </a>
-            </li>
-            <li>
-                <a href="/LoginUsuario"> <i class="fa fa-address-card"></i> Usuario </a>
             </li>
         </ul>
     </div>
@@ -26,7 +26,7 @@
                     <h3 class="panel-title text-center">Login Usuario</h3>
                 </div>
                 <div class="card card-container">
-                    <form class="form-signin" method="POST" action="cliente/listCli">
+                    <form class="form-signin" method="POST" action="usuario/listUse">
                         <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Endereço de Email" required autofocus>
                         <label for="senha">Senha</label>

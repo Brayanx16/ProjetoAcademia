@@ -70,8 +70,7 @@
                                         </div>
                                     </li>
                                 <li>
-                                <a href="#">
-                                    <i class="fa fa-book fa-lg"> Relatorios </i> </a>
+                                <a href="/relatorios/listCli"> <i class="fa fa-book fa-lg"> Relatorios </i> </a>
                                 </li>   
                             </ul>
                         </div>
@@ -179,11 +178,18 @@
                         </div>
                         <!-- Text input -->
                         <div class="form-group col-md-5">
-                            <label class="col-md-2 control-label" for="confirmarSenha">C.Senha</label>
+                            <label class="col-md-2 control-label" for="data">Data</label>
                             <div class="col-md-10">
-                                <input id="confirmarSenha" name="confirmarSenha" type="password" placeholder="Confirme sua Senha" class="form-control input-md" required="">
+                                <input id="data" onclick="this.value = formataData()" name="data" type="text" placeholder="Data de Cadastro" class="form-control input-md">
                             </div>
                         </div>
+                        <!-- Text input 
+                        <div class="form-group col-md-5">
+                                <label class="col-md-2 control-label" for="ConfirSenha">C.Senha</label>
+                                <div class="col-md-10">
+                                    <input id="ConfirSenha" name="ConfirSenha" type="text" placeholder="Confirme sua Senha" class="form-control input-md">
+                                </div>
+                            </div>-->
                         <!-- Text input -->
                         <div class="form-group col-md-5">
                             <label class="col-md-2 control-label" for="plano">Plano</label>
