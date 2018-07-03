@@ -226,3 +226,8 @@ a {
 .cadastro-cli-panel {
     margin-top: 10px; 
 }
+
+#pagamento {
+    background-color: rgb(24, 179, 50);
+    color: white;
+}
