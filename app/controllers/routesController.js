@@ -96,51 +96,6 @@ controller.deleteUsuario = (req, res) => {
   });
 };
 
-/*controller.listCliRelatorios = (req, res) => {
-  req.getConnection((erro, conn) => {
-    conn.query('select * from cliente', (erros, admin) => {
-      let lista = [];
-
-      for(i = 0; i < admin.length; i++){
-        let obj = {nome: '', idade: '', rg: '', cpf: '', email: '', telefone: '', sexo: '', cep: '', 
-        estado: '', cidade: '', bairro: '', senha: '', plano: '', dataC: '', dataR: '', dataN: ''}
-          
-        let dataFormatada = '0'+admin[i].dataR.getDate() + '/' + '0'+(admin[i].dataR.getMonth() + 1) + '/' + admin[i].dataR.getFullYear()
-
-        obj.nome = admin[i].nome
-        obj.idade = admin[i].idade
-        obj.rg = admin[i].rg
-        obj.cpf = admin[i].cpf
-        obj.email = admin[i].email
-        obj.telefone = admin[i].telefone
-        obj.sexo = admin[i].sexo
-        obj.cep = admin[i].cep
-        obj.estado = admin[i].estado
-        obj.cidade = admin[i].cidade
-        obj.bairro = admin[i].bairro
-        obj.senha = admin[i].senha
-        obj.plano = admin[i].plano
-        obj.dataC = admin[i].dataC
-        obj.dataR = dataFormatada
-        obj.dataN = admin[i].dataN
-
-        lista.push(obj)
-      }
-      //res.send(lista);
-      res.render('relatorios/listCli', {data: lista});
-    });
-  });
-};*/
-
-controller.listCliRelatorios = (req, res) => {
-  req.getConnection((erro, conn) => {
-    conn.query('select nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, dataC, date_format(dataR, "%d/%m/%Y") as dataR , dataN from cliente', (erros, admin) => {
-      
-      res.render('relatorios/listCli', {data: admin});
-    });
-  });
-};
-
 // Rodas do Cliente
 controller.listCliente = (req, res) => {
   req.getConnection((erro, conn) => {
@@ -153,13 +108,26 @@ controller.listCliente = (req, res) => {
 
 controller.addCliente = (req, res) => {
   const data = req.body;
-    
   req.getConnection((err, connection) => {
-    const query = connection.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE(), CURDATE(), ?)'
-    , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, customer) => {
-      
-     res.redirect('/cliente/listCli');
-   });
+    if(req.body.plano == 'Básico'){
+        connection.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 30.00, CURDATE(), CURDATE(), ?)'
+        , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, customer) => {
+          
+         res.redirect('/cliente/listCli');
+       });
+    }else if(req.body.plano == 'Intermediário'){
+        connection.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 50.00, CURDATE(), CURDATE(), ?)'
+          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, customer) => {
+
+           res.redirect('/cliente/listCli');
+         });
+    }else{
+        connection.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 80.00, CURDATE(), CURDATE(), ?)'
+            , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, customer) => {
+
+             res.redirect('/cliente/listCli');
+           });
+    }
   });
 };
 
@@ -247,5 +215,44 @@ controller.deleteTreinador = (req, res) => {
     });
   });
 };
+
+//Rotas Relatorios
+
+controller.listCliRelatorios = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select idCliente, nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, date_format(dataR, "%d/%m/%Y") as dataR , dataN from cliente', (erros, admin) => {
+
+      res.render('relatorios/listCli', {data: admin});
+    });
+  });
+};
+
+controller.updateRelatorio = (req, res) => {
+  const { idCliente } = req.params;
+  req.getConnection((err, connection) => {
+    connection.query('select dataR from cliente where idCliente = ?', [idCliente], (err, rows) => {
+      if(rows == ''){
+        console.log(err);
+      }else{
+        connection.query('update cliente set dataR = curdate() where idCliente = ?', [idCliente], (err, rows) => {
+          res.redirect('/relatorios/listCli')
+        })
+      }
+    });
+  });
+};
+
+controller.listFinancas = (req, res) => {
+  req.getConnection((erro, conn) => {
+    conn.query('select sum(valor) as valorTotal from cliente', (erros, admin) => {
+      let somaValor = admin[0].valorTotal;
+      
+      res.render('relatorios/financas', {data: somaValor});
+    });
+    
+  });
+}
+
+
 
 module.exports = controller;

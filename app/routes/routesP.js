@@ -28,7 +28,6 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/delete/usuario/:idUsuario', routesController.deleteUsuario);
     //---------------------------------------------------------------------------------------------
-    router.get('/relatorios/listCli/', routesController.listCliRelatorios);
     
 
     //Rotas Cliente--------------------------------------------------------------------------------
@@ -60,6 +59,13 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/loginTrei', (req, res) => { res.render('pages/loginTrei') });
 
+
+    //Rotas Relatorios-----------------------------------------------------------------------------
+    router.get('/relatorios/listCli/', routesController.listCliRelatorios);
+    //---------------------------------------------------------------------------------------------
+    router.get('/update/relatorios/:idCliente', routesController.updateRelatorio);
+    //---------------------------------------------------------------------------------------------
+    router.get('/relatorios/financas', routesController.listFinancas )
 
 
 module.exports = router;

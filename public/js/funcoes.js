@@ -106,3 +106,18 @@ function mascaraData(val) {
       val.value = val.value.substring(0, 10);
     return true;
   }
+
+  let tamanho = document.querySelectorAll("#pagamento").length
+		let dataSistema = new Date();	 
+		for(i = 0; i < tamanho; i++){
+			let value = document.querySelectorAll("#pagamento")[i].firstChild.textContent,
+        		data1 = moment(value, "DD/MM/YYYY hh:mm"),
+				data2 = moment(dataSistema, "DD/MM/YYYY hh:mm"),
+				diferenca = data2.diff(data1, 'days');
+
+			if(diferenca > 30){
+				document.querySelectorAll("#pagamento")[i].style.backgroundColor="rgb(201, 48, 44)";
+      }
+    }
+    
+     
