@@ -65,7 +65,8 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/update/relatorios/:idCliente', routesController.updateRelatorio);
     //---------------------------------------------------------------------------------------------
-    router.get('/relatorios/financas', routesController.listFinancas )
-
+    router.get('/relatorios/financas', routesController.listFinancas)
+    //---------------------------------------------------------------------------------------------
+    router.post('/update/relatorios/financas/:idfinancas', routesController.updateFinancas)
 
 module.exports = router;

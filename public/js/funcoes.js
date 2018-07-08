@@ -107,11 +107,11 @@ function mascaraData(val) {
     return true;
   }
 
-  let tamanho = document.querySelectorAll("#pagamento").length
+    let tamanho = document.querySelectorAll("#pagamento").length
 		let dataSistema = new Date();	 
 		for(i = 0; i < tamanho; i++){
-			let value = document.querySelectorAll("#pagamento")[i].firstChild.textContent,
-        		data1 = moment(value, "DD/MM/YYYY hh:mm"),
+			let dataR = document.querySelectorAll("#pagamento")[i].firstChild.textContent,
+        		data1 = moment(dataR, "DD/MM/YYYY hh:mm"),
 				data2 = moment(dataSistema, "DD/MM/YYYY hh:mm"),
 				diferenca = data2.diff(data1, 'days');
 
@@ -120,4 +120,44 @@ function mascaraData(val) {
       }
     }
     
-     
+    for(i = 0; i < tamanho; i++){
+      let dataR = document.querySelectorAll('#pagamento')[i].firstChild.textContent;
+      let cor = document.querySelectorAll('#pagamento')[i].style.backgroundColor;
+        if(cor == ''){
+          let botao = document.querySelectorAll('#botaoValida')[i];
+          let disabled = document.createAttribute('disabled')
+          
+          botao.setAttributeNode(disabled);
+        }
+    } 
+
+    /*let contador = 0;
+    for(i = 0; i < tamanho; i++){
+      let dataR = document.querySelectorAll('#pagamento')[i].firstChild.textContent;
+      let novaDataR = dataR.substring(4,5);
+
+          if(novaDataR == dataSistema.getMonth()+1){
+
+            contador++
+            let valor = document.querySelectorAll('#valor')[i].firstChild.textContent;
+            let novoValor = Number(valor.substring(0,2));
+            var valorTotal = novoValor * contador;
+            
+          }
+    } 
+      let value = document.querySelector('#valorTotal')
+      value.textContent = valorTotal+',00 R$';
+
+
+    let botaoRetira = document.querySelector('#botaoRetira');
+    botaoRetira.addEventListener("click", (event) => {
+      event.preventDefault();
+      
+      let form = document.querySelector('#formFinancas')
+      let formValue = form.Rvalor.value;
+      let somaValor = valorTotal - formValue;
+      value.textContent = somaValor+',00 R$';
+      
+    })*/
+  
+  

@@ -34,9 +34,8 @@
                             <li>
                                 <a href="/cliente/listCli"> <i class="fa fa-users fa-lg"> Clientes </i></a>
                             </li>
-
                             <li>
-                                <a href="/relatorios/financas"> <i class="fa fa-credit-card fa-lg "> Finanças </i></a>
+                                <a href="/relatorios/financas"> <i class="fa fa-credit-card fa-lg"> Finanças </i></a>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +53,6 @@
                 <thead>
                     <tr>
                         <td><strong>NOME</strong></td>
-                        
                         <td><strong>CPF</strong></td> 
                         <td><strong>PLANO</strong></td>
                         <td><strong>VALOR</strong></td>
@@ -66,14 +64,13 @@
                     <%for(var i = 0; i < data.length; i++) {%>
                         <tr>
                             <td><%=data[i].nome %></td>
-                            
                             <td><%=data[i].cpf %></td> 
                             <td><%=data[i].plano %></td>
-                            <td><%=data[i].valor %></td>
+                            <td id="valor"><%=data[i].valor %>,00 R$</td>
                             <td id="pagamento"><%=data[i].dataR%></td>
                             <td class="text-center">
                                 <a href="/update/relatorios/<%= data[i].idCliente %>">
-                                    <button  class="btn btn-success" data-toggle="tooltip" title="Dar Baixa" ><i class="fa fa-retweet"></i></button>
+                                    <button id="botaoValida" class="btn btn-success" data-toggle="tooltip" title="Dar Baixa" ><i class="fa fa-retweet"></i></button>
                                 </a>
                             </td>
                         </tr>
