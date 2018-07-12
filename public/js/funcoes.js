@@ -130,7 +130,7 @@ function mascaraData(val) {
           botao.setAttributeNode(disabled);
         }
     } 
-
+    
     /*let contador = 0;
     for(i = 0; i < tamanho; i++){
       let dataR = document.querySelectorAll('#pagamento')[i].firstChild.textContent;

@@ -67,6 +67,7 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/relatorios/financas', routesController.listFinancas)
     //---------------------------------------------------------------------------------------------
-    router.post('/update/relatorios/financas/:idfinancas', routesController.updateFinancas)
-
+    router.post('/add/financas', routesController.addRetirada)
+    //---------------------------------------------------------------------------------------------
+    router.get('/relatorios/moviment', routesController.listMoviment)
 module.exports = router;
