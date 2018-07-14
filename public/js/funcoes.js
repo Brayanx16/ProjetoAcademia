@@ -108,14 +108,15 @@ function mascaraData(val) {
   }
 
     let tamanho = document.querySelectorAll("#pagamento").length
-		let dataSistema = new Date();	 
+    let dataSistema = new Date();	 
+    
 		for(i = 0; i < tamanho; i++){
 			let dataR = document.querySelectorAll("#pagamento")[i].firstChild.textContent,
         		data1 = moment(dataR, "DD/MM/YYYY hh:mm"),
 				data2 = moment(dataSistema, "DD/MM/YYYY hh:mm"),
 				diferenca = data2.diff(data1, 'days');
 
-			if(diferenca > 30){
+			if(diferenca >= 30){
 				document.querySelectorAll("#pagamento")[i].style.backgroundColor="rgb(201, 48, 44)";
       }
     }
@@ -131,33 +132,12 @@ function mascaraData(val) {
         }
     } 
     
-    /*let contador = 0;
-    for(i = 0; i < tamanho; i++){
-      let dataR = document.querySelectorAll('#pagamento')[i].firstChild.textContent;
-      let novaDataR = dataR.substring(4,5);
-
-          if(novaDataR == dataSistema.getMonth()+1){
-
-            contador++
-            let valor = document.querySelectorAll('#valor')[i].firstChild.textContent;
-            let novoValor = Number(valor.substring(0,2));
-            var valorTotal = novoValor * contador;
-            
-          }
-    } 
-      let value = document.querySelector('#valorTotal')
-      value.textContent = valorTotal+',00 R$';
-
-
-    let botaoRetira = document.querySelector('#botaoRetira');
-    botaoRetira.addEventListener("click", (event) => {
-      event.preventDefault();
-      
-      let form = document.querySelector('#formFinancas')
-      let formValue = form.Rvalor.value;
-      let somaValor = valorTotal - formValue;
-      value.textContent = somaValor+',00 R$';
-      
-    })*/
-  
-  
+    //Coloração do Saldo em Caixa 
+    let saldoCaixa = document.querySelector('#saldoCaixa').textContent.substring(19, 21);
+    console.log(saldoCaixa);
+    
+    if(saldoCaixa > 0){
+      document.querySelector('#saldoCaixa').style.color = 'green'
+    }else if(saldoCaixa < 0){
+      document.querySelector('#saldoCaixa').style.color = 'red'
+    }

@@ -40,6 +40,9 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li>
+                                                <a href="/cliente/listCli"> <i class="fa fa-user"> Cliente </i></a>
+                                            </li>
+                                            <li>
                                                 <a href="/usuario/listUse"> <i class="fa fa-user"> Usuários </i></a>
                                             </li>
                                             <li>
@@ -102,7 +105,7 @@
                         <div class="panel-body">
                             <form action="/add/financas" method="POST" class="form-inline">
                                 <div class="form-group">
-                                    <label for="destino">Destino: </label>
+                                    <label for="destino">Descrição: </label>
                                     <input type="text" class="form-control" name="destino" placeholder="Destino do Valor" id="destino" required="">
                                 </div>
                                 <div class="form-group">
@@ -126,7 +129,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <h4 class="text-right" style="color: black">Saldo em Caixa: <%= data[0].saldo %>,00 R$</h4>
+                    <h4 id="saldoCaixa" class="text-right" style="color: black">Saldo em Caixa: R$ <%= data[0].saldo %>,00</h4>
                 </div>
             </div>
         </div>

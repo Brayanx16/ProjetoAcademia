@@ -65,9 +65,11 @@ const routesController = require('../controllers/routesController');
     //---------------------------------------------------------------------------------------------
     router.get('/update/relatorios/:idCliente', routesController.updateRelatorio);
     //---------------------------------------------------------------------------------------------
-    router.get('/relatorios/financas', routesController.listFinancas)
+    router.get('/relatorios/financas', routesController.listFinancas);
     //---------------------------------------------------------------------------------------------
-    router.post('/add/financas', routesController.addRetirada)
+    router.post('/add/financas', routesController.addRetirada);
     //---------------------------------------------------------------------------------------------
-    router.get('/relatorios/moviment', routesController.listMoviment)
+    router.get('/relatorios/moviment', routesController.listMoviment);
+    //---------------------------------------------------------------------------------------------
+    router.get('/update/relatorios/moviment/:idlog', routesController.cancelarMovimento);
 module.exports = router;

@@ -225,7 +225,7 @@ controller.updateRelatorio = (req, res) => {
   req.getConnection((err, conn) => {
     conn.query('select idCliente, nome, dataR, plano, valor from cliente where idCliente = ?', [idCliente], (err, rows) => {
       const valor = rows[0].valor;
-        conn.query('insert into log (destino, valor, tipo, data) values (?, ?, "Cliente", NOW())', [rows[0].nome, rows[0].valor], (err, rows)=> {
+        conn.query('insert into log (idlog, destino, valor, tipo, data) values (?, ?, ?, "Cliente", NOW())', [rows[0].idCliente, rows[0].nome, rows[0].valor], (err, rows)=> {
 
         });
       if(rows == ''){
@@ -294,13 +294,43 @@ controller.addRetirada = (req, res) => {
   });
 }
 
-
 controller.listMoviment = (req, res) => {
+  let data = new Date();
+  let dia = data.getDate();
+  let mes = data.getMonth()+1;
+  let ano = data.getFullYear();
+  let dataCompleta = ano+'-'+'0'+mes+'-'+dia;
+
   req.getConnection((err, conn) => {
       conn.query('select idlog, destino, valor, tipo, DATE_FORMAT(data, "%d/%m/%Y %H:%i:%S") as data from log', (err, rows) => {
         res.render('relatorios/moviment', {data: rows})
-        
-      })
+      });
+  });
+}
+
+controller.cancelarMovimento = (req ,res) => {
+  const { idlog } = req.params;
+  let data = new Date()
+  let dia = data.getDate();
+  let mes = data.getMonth();
+  let ano = data.getFullYear();
+  let dataCompleta = ano+'-'+'0'+mes+'-'+dia; //Corrigir erro Statico da Data
+
+  req.getConnection((err, conn) => {
+    conn.query('select * from log where idlog = ?', [idlog], (err, rows) => {
+      if (rows[0].tipo == 'Cliente') {
+        conn.query('update cliente set dataR = ? where idCliente = ?', [dataCompleta, idlog], (err, rows)=> {
+  
+        });
+        conn.query('delete from log where idlog = ?', [idlog], (err, rows) => {
+          res.redirect('/relatorios/moviment')
+        });
+      }else{
+        conn.query('delete from log where idlog = ?', [idlog], (err, rows) => {
+          res.redirect('/relatorios/moviment')
+        });
+      }
+    });
   });
 }
 

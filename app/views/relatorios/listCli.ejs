@@ -40,6 +40,9 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li>
+                                                <a href="/cliente/listCli"> <i class="fa fa-user"> Cliente </i></a>
+                                            </li>
+                                            <li>
                                                 <a href="/usuario/listUse"> <i class="fa fa-user"> Usuários </i></a>
                                             </li>
                                             <li>
@@ -110,7 +113,7 @@
                             <td><%=data[i].nome %></td>
                             <td><%=data[i].cpf %></td> 
                             <td><%=data[i].plano %></td>
-                            <td id="valor"><%=data[i].valor %>,00 R$</td>
+                            <td id="valor">R$ <%=data[i].valor %>,00</td>
                             <td id="pagamento"><%=data[i].dataR%></td>
                             <td class="text-center">
                                 <a href="/update/relatorios/<%= data[i].idCliente %>">
