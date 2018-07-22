@@ -106,7 +106,7 @@
                         <td><strong>AÇÕES</strong></td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>  
                     <%for(var i = 0; i < data.length; i++) {%>
                         <tr>
                             <td><%= data[i].idlog %></td>
@@ -123,6 +123,15 @@
                     <%}%>
                 </tbody>
             </table>
+            <div class="col-md-6 col-md-offset-3">
+            <p></p>
+            <% if (data == "") {%>
+                <div class="alert alert-danger alert-dismissible text-center" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    Nenhuma Transação foi Efetuada
+                </div>
+            <% } %>
+            </div> 
         </div>
     </div>
 </div>

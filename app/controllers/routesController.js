@@ -7,22 +7,17 @@ controller.loginUsuario = (req, res) => {
 
   req.getConnection((err, conn) => {
     conn.query('select * from usuario where email = ? and senha = ?', [email, senha], (err, results) => {
-      if(results == ""){  
-        res.redirect('/loginUsuario')
+      if(results == ""){
 
-        return 0
+        res.redirect('/loginErro');
       }else {
-        req.getConnection((err, conn) => {
-          conn.query('select * from usuario', (err, results) => {
-            res.render('usuario/listUse', {data: results});
-          
-            return 1
-          });
-        });
+
+        res.redirect('/usuario/listUse')
       }
     });
   });
 };
+
 // Rota de Login Treinador
 controller.loginTrei = (req, res) => {
   const email = req.body.email;
@@ -31,24 +26,22 @@ controller.loginTrei = (req, res) => {
   req.getConnection((err, conn) => {
     conn.query('select * from treinador where email = ? and senha = ?', [email, senha], (err, results) => {
       if(results == ""){  
+        
         res.redirect('/loginTrei')
       }else {
-        req.getConnection((err, conn) => {
-          conn.query('select * from cliente', (err, results) => {
-           res.render('treinador/listCli', {data: results});
-
-          });
-        });
+        conn.query('select * from cliente', (err, results) => {
+          res.render('treinador/listCli', {data: results});
+        })
       }
     });
   });
 };
 
-
 //Rotas do Usuario
 controller.listUsuario = (req, res) => {
   req.getConnection((err, conn) => {
     conn.query('select * from usuario', (err, results) => {
+      
       res.render('usuario/listUse', {data: results});
     });
   });
@@ -59,6 +52,7 @@ controller.addUsuario = (req, res) => {
   
   req.getConnection((err, conn) => {
     conn.query('insert into usuario set ?', [data], (err, results) => {
+
       res.redirect('/usuario/listUse');
     });
   });
@@ -137,9 +131,7 @@ controller.editCliente = (req, res) => {
   
   req.getConnection((err, conn) => {
     conn.query("select * from cliente where idCliente = ?", [idCliente], (err, results) => {
-      res.render('cliente/editCli', {
-        data: results[0]
-      });
+      res.render('cliente/editCli', {data: results[0]});
     });
   });
 };
@@ -190,10 +182,7 @@ controller.editTreinador = (req, res) => {
   
   req.getConnection((err, conn) => {
     conn.query("select * from treinador where idtreinador = ?", [idtreinador], (err, results) => {
-      res.render('treinador/editTrei', {
-        data: results[0]
-        
-      });
+      res.render('treinador/editTrei', {data: results[0]});
     });
   });
 }; 
@@ -317,16 +306,15 @@ controller.cancelarMovimento = (req ,res) => {
   let dia = data.getDate();
   let mes = data.getMonth();
   let ano = data.getFullYear();
-  let dataCompleta = ano+'-'+'0'+mes+'-'+dia; //Corrigir erro Statico da Data
+  let dataCompleta = ano+'-'+'0'+mes+'-'+dia; //Corrigir erro Stático da Data
 
   req.getConnection((err, conn) => {
     conn.query('select * from log where idlog = ?', [idlog], (err, results) => {
-      if (results[0].tipo == 'Cliente') {
+      if (results[0].tipo == 'Pagamento') {
         conn.query('update cliente set dataR = ? where idCliente = ?', [dataCompleta, idlog], (err, results)=> {
-  
-        });
-        conn.query('delete from log where idlog = ?', [idlog], (err, results) => {
-          res.redirect('/relatorios/moviment')
+          conn.query('delete from log where idlog = ?', [idlog], (err, results) => {
+            res.redirect('/relatorios/moviment')
+          });
         });
       }else{
         conn.query('delete from log where idlog = ?', [idlog], (err, results) => {
@@ -335,6 +323,6 @@ controller.cancelarMovimento = (req ,res) => {
       }
     });
   });
-}
+};
 
 module.exports = controller;

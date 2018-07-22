@@ -130,14 +130,4 @@ function mascaraData(val) {
           
           botao.setAttributeNode(disabled);
         }
-    } 
-    
-    //Coloração do Saldo em Caixa 
-    let saldoCaixa = document.querySelector('#saldoCaixa').textContent.substring(19, 21);
-    console.log(saldoCaixa);
-    
-    if(saldoCaixa > 0){
-      document.querySelector('#saldoCaixa').style.color = 'green'
-    }else if(saldoCaixa < 0){
-      document.querySelector('#saldoCaixa').style.color = 'red'
     }

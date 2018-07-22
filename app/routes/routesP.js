@@ -5,16 +5,19 @@ const routesController = require('../controllers/routesController');
     router.get('/', (req, res) => { res.render('pages/home') });
     //---------------------------------------------------------------------------------------------
     router.get('/planos', (req, res) => { res.render('pages/planos') });
+    //---------------------------------------------------------------------------------------------
 
     
-    //Rota Login-----------------------------------------------------------------------------------
+    //Rota LoginUsuario----------------------------------------------------------------------------
     router.post('/usuario/listUse/', routesController.loginUsuario);
     //Rota LoginTreinador--------------------------------------------------------------------------
     router.post('/treinador/listCli/', routesController.loginTrei);
+    //Rota LoginErro-------------------------------------------------------------------------------
+    router.get('/loginErro', (req, res) => {res.render('pages/loginErro')});
 
     
     //Rotas Usuario -------------------------------------------------------------------------------
-    router.get('/loginUsuario', (req, res) => { res.render('pages/loginUsuario') });
+    router.get('/loginUsuario', (req, res) => {res.render('pages/loginUsuario')});
     //---------------------------------------------------------------------------------------------
     router.get('/usuario/listUse', routesController.listUsuario);
     //---------------------------------------------------------------------------------------------
@@ -42,6 +45,7 @@ const routesController = require('../controllers/routesController');
     router.post('/update/cliente/:idCliente', routesController.updateCliente);
     //---------------------------------------------------------------------------------------------
     router.get('/delete/cliente/:idCliente', routesController.deleteCliente);
+    //---------------------------------------------------------------------------------------------
 
 
     //Rotas Treinador -----------------------------------------------------------------------------
@@ -58,6 +62,7 @@ const routesController = require('../controllers/routesController');
     router.get('/delete/treinador/:idtreinador', routesController.deleteTreinador);
     //---------------------------------------------------------------------------------------------
     router.get('/loginTrei', (req, res) => { res.render('pages/loginTrei') });
+    //---------------------------------------------------------------------------------------------
 
 
     //Rotas Relatorios-----------------------------------------------------------------------------
@@ -72,4 +77,7 @@ const routesController = require('../controllers/routesController');
     router.get('/relatorios/moviment', routesController.listMoviment);
     //---------------------------------------------------------------------------------------------
     router.get('/update/relatorios/moviment/:idlog', routesController.cancelarMovimento);
+    //---------------------------------------------------------------------------------------------
+    
+    
 module.exports = router;
