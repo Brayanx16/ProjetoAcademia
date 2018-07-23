@@ -222,6 +222,7 @@ controller.updateRelatorio = (req, res) => {
 
   req.getConnection((err, conn) => {
     conn.query('select idCliente, nome, dataR, plano, valor from cliente where idCliente = ?', [idCliente], (err, results) => {
+      
       conn.query('insert into log (idlog, destino, valor, tipo, data) values (?, ?, ?, "Pagamento", NOW())', [results[0].idCliente, results[0].nome, results[0].valor], (err, results) => {
       
       });

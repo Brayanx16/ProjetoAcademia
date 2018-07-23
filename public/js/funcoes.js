@@ -117,17 +117,24 @@ function mascaraData(val) {
 				diferenca = data2.diff(data1, 'days');
 
 			if(diferenca >= 30){
-				document.querySelectorAll("#pagamento")[i].style.backgroundColor="rgb(201, 48, 44)";
+        document.querySelectorAll("#pagamento")[i].style.backgroundColor="rgb(201, 48, 44)";
+        
+      }else {
+        document.querySelectorAll("#pagamento")[i].style.backgroundColor="rgb(63, 182, 41)";
+
+        
       }
     }
     
     for(i = 0; i < tamanho; i++){
-      let dataR = document.querySelectorAll('#pagamento')[i].firstChild.textContent;
       let cor = document.querySelectorAll('#pagamento')[i].style.backgroundColor;
-        if(cor == ''){
+      
+        if(cor == 'rgb(63, 182, 41)'){
           let botao = document.querySelectorAll('#botaoValida')[i];
           let disabled = document.createAttribute('disabled')
           
           botao.setAttributeNode(disabled);
         }
     }
+     
+    

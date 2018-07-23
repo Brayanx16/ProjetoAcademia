@@ -76,13 +76,6 @@ a {
     cursor: default;
 }
 
-.footer {
-    position: fixed;
-    bottom:0;
-    width:100%;
-    background-image: linear-gradient(rgb(179, 194, 201), rgb(126, 129, 127));
-}
-
 /*
  * Card component
  */
@@ -225,9 +218,4 @@ a {
 
 .cadastro-cli-panel {
     margin-top: 10px; 
-}
-
-#pagamento {
-    background-color: rgb(24, 179, 50);
-    color: white;
 }
