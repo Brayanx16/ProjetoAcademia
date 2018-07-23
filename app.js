@@ -1,10 +1,11 @@
-let express = require('express'),
-    bodyParser = require('body-parser'),
-    expressLayouts = require('express-ejs-layouts'),
-    morgan = require('morgan'),
-    mysql = require('mysql'),
-    myConnection = require('express-myconnection'),
-    app = express();
+const   express = require('express'),
+        bodyParser = require('body-parser'),
+        expressLayouts = require('express-ejs-layouts'),
+        morgan = require('morgan'),
+        mysql = require('mysql'),
+        myConnection = require('express-myconnection'),
+        fontAwesome = require('@fortawesome/fontawesome-free'),
+        app = express();
     
     
 

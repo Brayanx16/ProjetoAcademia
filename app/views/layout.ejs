@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Academia ADS</title>
-	<meta charset="utf-8">
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-	<!--link CSS-->
-	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/css/adsacadem.css"/>
-	<link rel="stylesheet" href="/css/user.css">
-	<!-- Fontes da Google -->
-	<link href="https://fonts.googleapis.com/css?family=Oswald|Raleway+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Icone -->
-	<link id="favicon" href="/img/favicon.png" rel="icon" type="image/x-icon">
-</head>
+		<!--link CSS-->
+		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/css/adsAcademia.css"/>
+		<link rel="stylesheet" href="/css/user.css">
 
-<body>
-	<header>
-		<!-- Barra de navegação superior -->
-		<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#acad-navbar">
-					</button>
-					<a class="navbar-brand">
-						<img class="navbar-brand-acad" src="/img/logo@2x.png">
-					</a>
+		<!-- Icons FontAwesome -->
+		<link rel="stylesheet" href="/css/all.css">
+		<link rel="stylesheet" href="/css/v4-shims.css">
+
+		<title>Academia ADS</title>
+
+		<!-- Favicon -->
+		<link id="favicon" href="/img/favicon.png" rel="icon" type="image/x-icon">
+		
+	</head>
+
+	<body>
+		<header>
+			<!-- Barra de navegação superior -->
+			<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#acad-navbar">
+						</button>
+						<a class="navbar-brand">
+							<img class="navbar-brand-acad" src="/img/logo@2x.png">
+						</a>
+					</div>
+
+					<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
+						<li class="active">
+							<a href="/"> <i class="fa fa-home"></i> Home </a>
+						</li>
+						<li>
+							<a href="planos"> <i class="fa fa-address-book"></i> Planos</a>
+						</li>
+					</ul>
 				</div>
+			</nav>
+		</header>
 
-				<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
-					<li class="active">
-						<a href="/"> <i class="fa fa-home"></i> Home </a>
-					</li>
-					<li>
-						<a href="planos"> <i class="fa fa-address-book"></i> Planos</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+		<main>
+			<div class="container">
+				<%- body %>
+		
 
-	<main>
-		<div class="container">
-			<%- body %>
-		</div>
-	</main>
-	
-	<!-- Scripts -->
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/js/moment.js"></script>
-	<script type="text/javascript" src="/js/funcoes.js"></script>
-	
-</body>
+		<!-- Jquery Core Js -->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<!-- Bootstrap Core Js -->
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<!-- Moment Js -->
+		<script type="text/javascript" src="/js/moment.js"></script>
+		<!-- Custon Js -->
+		<script type="text/javascript" src="/js/funcoes.js"></script>
+		<!-- FontAwesome Js -->
+		<script type="text/javascript" src="/js/all.js"></script>
+		<!-- FontAwesome Js -->
+		<script type="text/javascript" src="/js/v4-shims.js"></script>
+
+	</body>
 </html>
