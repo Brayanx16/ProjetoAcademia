@@ -102,29 +102,62 @@ controller.listCliente = (req, res) => {
 
 controller.addCliente = (req, res) => {
   const data = req.body;
-  
-  req.getConnection((err, conn) => {
-    if(req.body.plano == 'Básico'){
-        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 30.00, CURDATE(), CURDATE(), ?)'
-        , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, results) => {
-          
-         res.redirect('/cliente/listCli');
-       });
-    }else if(req.body.plano == 'Intermediário'){
-        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 50.00, CURDATE(), CURDATE(), ?)'
-          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, results) => {
-
+  let dataSistema = new Date();
+  let dia = dataSistema.getDate();
+  let mes = dataSistema.getMonth();
+  let ano = dataSistema.getFullYear();
+  if(mes <= 9){
+    let dataCompleta = ano+'-'+'0'+mes+'-'+dia;
+    
+    req.getConnection((err, conn) => {
+      if(req.body.plano == 'Básico'){
+          conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 30.00, CURDATE(), ?, ?)'
+          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, dataCompleta , data.dataN] , (err, results) => {
+            
            res.redirect('/cliente/listCli');
          });
-    }else{
-        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 80.00, CURDATE(), CURDATE(), ?)'
-            , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, results) => {
-
+      }else if(req.body.plano == 'Intermediário'){
+          conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 50.00, CURDATE(), ?, ?)'
+            , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, dataCompleta, data.dataN] , (err, results) => {
+  
              res.redirect('/cliente/listCli');
            });
-    }
-  });
-};
+      }else{
+          conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 80.00, CURDATE(), ?, ?)'
+              , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, dataCompleta, data.dataN] , (err, results) => {
+  
+               res.redirect('/cliente/listCli');
+             });
+      }
+    });
+  }else{
+    let dataCompleta = ano+'-'+mes+'-'+dia; 
+
+    req.getConnection((err, conn) => {
+      if(req.body.plano == 'Básico'){
+          conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 30.00, CURDATE(), CURDATE(), ?)'
+          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, results) => {
+            
+           res.redirect('/cliente/listCli');
+         });
+      }else if(req.body.plano == 'Intermediário'){
+          conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 50.00, CURDATE(), CURDATE(), ?)'
+            , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, results) => {
+  
+             res.redirect('/cliente/listCli');
+           });
+      }else{
+          conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 80.00, CURDATE(), CURDATE(), ?)'
+              , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.dataN] , (err, results) => {
+  
+               res.redirect('/cliente/listCli');
+             });
+      }
+    });
+  };
+  };
+  
+  
 
 controller.editCliente = (req, res) => {
   const { idCliente } = req.params;
@@ -307,9 +340,28 @@ controller.cancelarMovimento = (req ,res) => {
   let dia = data.getDate();
   let mes = data.getMonth();
   let ano = data.getFullYear();
-  let dataCompleta = ano+'-'+'0'+mes+'-'+dia; //Corrigir erro Stático da Data
+  
+  if(mes <= 9){
+    let dataCompleta = ano+'-'+'0'+mes+'-'+dia
 
-  req.getConnection((err, conn) => {
+    req.getConnection((err, conn) => {
+      conn.query('select * from log where idlog = ?', [idlog], (err, results) => {
+        if (results[0].tipo == 'Pagamento') {
+          conn.query('update cliente set dataR = ? where idCliente = ?', [dataCompleta, idlog], (err, results)=> {
+            conn.query('delete from log where idlog = ?', [idlog], (err, results) => {
+              res.redirect('/relatorios/moviment')
+            });
+          });
+        }else{
+          conn.query('delete from log where idlog = ?', [idlog], (err, results) => {
+            res.redirect('/relatorios/moviment')
+          });
+        }
+      });
+    });
+  }else {
+    let dataCompleta = ano+'-'+mes+'-'+dia
+
     conn.query('select * from log where idlog = ?', [idlog], (err, results) => {
       if (results[0].tipo == 'Pagamento') {
         conn.query('update cliente set dataR = ? where idCliente = ?', [dataCompleta, idlog], (err, results)=> {
@@ -323,7 +375,10 @@ controller.cancelarMovimento = (req ,res) => {
         });
       }
     });
-  });
-};
+  }
+  }
+  
+
+  
 
 module.exports = controller;
