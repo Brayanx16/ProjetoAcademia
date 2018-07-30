@@ -51,9 +51,8 @@
                             <tr>
                                 <td><strong>NOME</strong></td>
                                 <td><strong>IDADE</strong></td>
-                                <td><strong>CPF</strong></td> 
-                                <td><strong>TELEFONE</strong></td>
                                 <td><strong>PLANO</strong></td>
+                                <td><strong>AÇÕES</strong></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,9 +60,11 @@
                                 <tr>
                                     <td><%=data[i].nome %></td>
                                     <td><%=data[i].idade %></td>
-                                    <td><%=data[i].cpf %></td> 
-                                    <td><%=data[i].telefone %></td>
                                     <td><%=data[i].plano %></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-primary" title="Detalhes"> <i class="fa fa-user"></i></button>
+                                        <button class="btn btn-danger" title="Plano de Exercicio"><i class="fa fa-dumbbell"></i></button>
+                                    </td>
                                 </tr>
                             <%}%>
                         </tbody>
