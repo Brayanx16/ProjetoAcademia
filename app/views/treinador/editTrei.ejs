@@ -1,107 +1,125 @@
-        <nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
-            <div class="container">
-                <div class="navbar-brand">
-                    <img class="navbar-brand-acad" src="/img/logo@2x.png">
-                </div>
-            </div>
-        </nav>
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+    <div class="container">
+        <a href="/loginUsuario">
+            <button class="navbar-toggle">
+                <i class="fa fa-sign-out-alt" style="color: red"></i>
+            </button>
+        </a>
+        <div class="navbar-brand">
+            <img class="navbar-brand-acad" src="/img/logo@2x.png">
+        </div>
+    </div>
+</nav>
 
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container-fluid">
-            
-                <div class="navbar-header"> 
-                    <h3 style="color: black">Administração</h3>
-                </div>
-                <div class="collapse navbar-collapse">			
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="/loginUsuario"><button class="btn btn-danger"> Sair <i class="fa fa-sign-out-alt fa-lg">  </i></button></a>
-                        </li>
-                    </ul>
-                </div>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
 
-            </div>
-        </nav>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar2" aria-expanded="false">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar-brand" style="margin-top: 8px;"> Administração </div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/loginUsuario">
+                        <button class="btn btn-danger"> Sair
+                            <i class="fa fa-sign-out-alt fa-lg"> </i>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-        <div class="container-fluid main-container">
-            <div class="col-md-2 sidebar">
-                <div class="row">
-                    <!-- Menu -->
-                    <div>
-                        <nav class="navbar navbar-default" role="navigation">
-                            <!-- Main Menu -->
-                            <div class="side-menu-container">
-                                <ul class="nav navbar-nav">
-                                    <li>
-                                        <a href="/treinador/listTrei"> <i class="fa fa-users fa-lg"></i> Treinador </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
+    </div>
+</nav>
+
+<div class="container-fluid main-container">
+    <div class="col-md-2 sidebar">
+        <div class="row collapse navbar-collapse" id="navbar2">
+            <!-- Menu -->
+            <div>
+                <nav class="navbar navbar-default" role="navigation">
+                    <!-- Main Menu -->
+                    <div class="side menu-container">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/treinador/listTrei">
+                                    <i class="fa fa-users fa-lg"></i> Treinador </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>   
-        
-            <div class="col-md-10 content">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Atualizar Dados do Treinadores
-                    </div>
-                    <div class="panel-body">
-                        <form action="/update/treinador/<%= data.idTreinador %>" class="form-horizontal" method="POST">
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="nome">Nome</label>
-                                <div class="col-md-10">
-                                    <input id="nome" value="<%= data.nome %>" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="rg">RG</label>
-                                <div class="col-md-10">
-                                    <input id="rg" value="<%= data.rg %>"  type="text" name="rg" maxlength="8"  placeholder="x.xxx.xxx"
-                                        class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="cpf">CPF</label>
-                                <div class="col-md-10">
-                                    <input id="cpf" value="<%= data.cpf %>"  type="text" name="cpf" maxlength="14" onkeypress= "this.value = FormataCPF(event)" placeholder="xxx.xxx.xxx-xx"
-                                        class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                              <label class="col-md-2 control-label" for="email">Email</label>
-                              <div class="col-md-10">
-                                  <input id="email" value="<%= data.email %>"  name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md" required="">
-                              </div>
-                            </div> 
-                            <!-- Text input-->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="telefone">Tel.</label>
-                                <div class="col-md-10">
-                                    <input id="telefone" value="<%= data.telefone %>"  type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
-                                        class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="senha">Senha</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.senha %>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
-                                </div>
-                            </div> 
-                            <div class="col-md-8">
-                                <input type="submit" class="btn btn-primary" value="Confirmar">
-                                <a href="/treinador/listTrei"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </nav>
             </div>
         </div>
-    
     </div>
+
+    <div class="col-md-10 content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Atualizar Dados do Treinadores
+            </div>
+            <div class="panel-body">
+                <form action="/update/treinador/<%= data.idTreinador %>" class="form-horizontal" method="POST">
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="nome">Nome</label>
+                        <div class="col-md-10">
+                            <input id="nome" value="<%= data.nome %>" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="rg">RG</label>
+                        <div class="col-md-10">
+                            <input id="rg" value="<%= data.rg %>" type="text" name="rg" maxlength="8" placeholder="x.xxx.xxx" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="cpf">CPF</label>
+                        <div class="col-md-10">
+                            <input id="cpf" value="<%= data.cpf %>" type="text" name="cpf" maxlength="14" onkeypress="this.value = FormataCPF(event)"
+                                placeholder="xxx.xxx.xxx-xx" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="email">Email</label>
+                        <div class="col-md-10">
+                            <input id="email" value="<%= data.email %>" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="telefone">Tel.</label>
+                        <div class="col-md-10">
+                            <input id="telefone" value="<%= data.telefone %>" type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)"
+                                placeholder="(xx) x xxxx-xxxx" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="senha">Senha</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.senha %>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-primary" value="Confirmar">
+                        <a href="/treinador/listTrei">
+                            <input type="button" class="btn btn-danger" value="Cancelar">
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 </main>

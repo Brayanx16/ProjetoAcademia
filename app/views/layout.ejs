@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-		<!--link CSS-->
-		<link rel="stylesheet" href="/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="/css/adsAcademia.css"/>
-		<link rel="stylesheet" href="/css/user.css">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-		<!-- Icons FontAwesome -->
-		<link rel="stylesheet" href="/css/all.css">
-		<link rel="stylesheet" href="/css/v4-shims.css">
+	<!--link CSS-->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/adsAcademia.css" />
+	<link rel="stylesheet" href="/css/user.css">
 
-		<title>Academia ADS</title>
+	<!-- Icons FontAwesome -->
+	<link rel="stylesheet" href="/css/all.css">
+	<link rel="stylesheet" href="/css/v4-shims.css">
 
-		<!-- Favicon -->
-		<link id="favicon" href="/img/favicon.png" rel="icon" type="image/x-icon">
-		
-	</head>
+	<title>Academia ADS</title>
 
-	<body>
-		<header>
-			<!-- Barra de navegação superior -->
-			<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#acad-navbar">
-						</button>
-						<a class="navbar-brand">
-							<img class="navbar-brand-acad" src="/img/logo@2x.png">
-						</a>
-					</div>
+	<!-- Favicon -->
+	<link id="favicon" href="/img/favicon.png" rel="icon" type="image/x-icon">
 
-					<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
-						<li class="active">
-							<a href="/"> <i class="fa fa-home"></i> Home </a>
-						</li>
-						<li>
-							<a href="planos"> <i class="fa fa-address-book"></i> Planos</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+</head>
 
-		<main>
+<body>
+	<header>
+		<!-- Barra de navegação superior -->
+		<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
 			<div class="container">
-				<%- body %>
-		
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#acad-navbar">
+						<i class="fa fa-bars" style="color: white"></i>
+					</button>
+					<a class="navbar-brand">
+						<img class="navbar-brand-acad" src="/img/logo@2x.png">
+					</a>
+				</div>
 
-		<!-- Jquery Core Js -->
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<!-- Bootstrap Core Js -->
-		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-		<!-- Moment Js -->
-		<script type="text/javascript" src="/js/moment.js"></script>
-		<!-- Custon Js -->
-		<script type="text/javascript" src="/js/funcoes.js"></script>
-		<!-- FontAwesome Js -->
-		<script type="text/javascript" src="/js/all.js"></script>
-		<!-- FontAwesome Js -->
-		<script type="text/javascript" src="/js/v4-shims.js"></script>
+				<ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
+					<li class="active">
+						<a href="/">
+							<i class="fa fa-home"></i> Home </a>
+					</li>
+					<li>
+						<a href="planos">
+							<i class="fa fa-address-book"></i> Planos</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
-	</body>
+	<main>
+		<div class="container">
+			<%- body %>
+
+
+				<!-- Jquery Core Js -->
+				<script type="text/javascript" src="/js/jquery.min.js"></script>
+				<!-- Bootstrap Core Js -->
+				<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+				<!-- Moment Js -->
+				<script type="text/javascript" src="/js/moment.js"></script>
+				<!-- Custon Js -->
+				<script type="text/javascript" src="/js/funcoes.js"></script>
+				<!-- FontAwesome Js -->
+				<script type="text/javascript" src="/js/all.js"></script>
+				<!-- FontAwesome Js -->
+				<script type="text/javascript" src="/js/v4-shims.js"></script>
+
+</body>
+
 </html>

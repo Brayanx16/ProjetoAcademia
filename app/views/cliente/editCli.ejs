@@ -1,178 +1,201 @@
-        <nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
-            <div class="container">
-                <div class="navbar-brand">
-                    <img class="navbar-brand-acad" src="/img/logo@2x.png">
-                </div>
-            </div>
-        </nav>
-        
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container-fluid">
-            
-                <div class="navbar-header"> 
-                    <h3 style="color: black">Administração</h3>
-                </div>
-                <div class="collapse navbar-collapse">			
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="/loginUsuario"><button class="btn btn-danger"> Sair <i class="fa fa-sign-out-alt fa-lg"></i></button></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="container-fluid main-container">
-            <div class="col-md-2 sidebar">
-                <div class="row">
-                    <!-- Menu -->
-                    <div>
-                        <nav class="navbar navbar-default" role="navigation">
-                            <!-- Main Menu -->
-                            <div class="side-menu-container">
-                                <ul class="nav navbar-nav">
-                                    <li>
-                                        <a href="/cliente/listCli"> <i class="fa fa-users fa-lg"></i> Clientes </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+    <div class="container">
+        <a href="/loginUsuario">
+            <button class="navbar-toggle">
+                <i class="fa fa-sign-out-alt" style="color: red"></i>
+            </button>
+        </a>
+        <div class="navbar-brand">
+            <img class="navbar-brand-acad" src="/img/logo@2x.png">
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar2" aria-expanded="false">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar-brand" style="margin-top: 8px;"> Administração </div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/loginUsuario">
+                        <button class="btn btn-danger"> Sair
+                            <i class="fa fa-sign-out-alt fa-lg"></i>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid main-container">
+    <div class="col-md-2 sidebar">
+        <div class="row collapse navbar-collapse" id="navbar2">
+            <!-- Menu -->
+            <div>
+                <nav class="navbar navbar-default" role="navigation">
+                    <!-- Main Menu -->
+                    <div class="side menu-container">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/cliente/listCli">
+                                    <i class="fa fa-users fa-lg"></i> Clientes </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>  
-        
-            <div class="col-md-10 content">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Atualizar Dados do Clientes
-                    </div>
-                    <div class="panel-body">
-                        <form action="/update/cliente/<%= data.idCliente %>" class="form-horizontal" method="POST">
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="nome">Nome</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.nome %>" id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="idade">Idade</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.idade %>" id="idade" type="number" name="idade" placeholder="Nome do usuário" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="rg">RG</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.rg %>" id="rg" type="text" name="rg" maxlength="8" onkeypress= "this.value = FormataRG(event)" placeholder="xxx.xxx.xxx-xx"
-                                        class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input-->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="cpf">CPF</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.cpf %>" id="cpf" type="text" name="cpf" maxlength="14" onkeypress= "this.value = FormataCPF(event)" placeholder="xxx.xxx.xxx-xx"
-                                        class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="email">Email</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.email %>" id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md">
-                                </div>
-                            </div> 
-                            <!-- Text input-->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="telefone">Telefone</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.telefone %>" id="telefone" type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)" placeholder="(xx) x xxxx-xxxx"
-                                        class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Select Basic -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="sexo">Sexo</label>
-                                <div class="col-md-10">
-                                    <select value="<%= data.sexo %>" id="sexo" name="sexo" class="form-control">
-                                        <option value="Masculino" <% var selecionado = ''; if(data.sexo == 'Masculino'){ selecionado = 'selected'} %>
-                                            <%=selecionado %> > Masculino </option>
-                                        <option value="Feminino" <% var selecionado = ''; if(data.sexo == 'Feminino'){ selecionado = 'selected'} %>
-                                            <%=selecionado %> > Feminino </option>
-                                        <option value="Outro" <% var selecionado = ''; if(data.sexo == 'Outro'){ selecionado = 'selected'} %>
-                                            <%=selecionado %> > Outro </option>
-                                    </select>
-                                </div>
-                            </div> 
-                             <!-- Text input -->
-                             <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="estado">Estado</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.estado %>" id="estado" name="estado" type="text" placeholder="Estado" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="cidade">Cidade</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.cidade %>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                             <!-- Text input -->
-                             <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="bairro">Bairro</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.bairro %>" id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="cep">CEP</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.cep %>" id="cep" name="cep" type="text" maxlength="10" onkeypress="this.value = FormataCEP(event)" placeholder="CEP" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="senha">Senha</label>
-                                <div class="col-md-10">
-                                    <input value="<%= data.senha %>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="dataN">D.Nasc</label>
-                                <div class="col-md-10">
-                                    <input id="dataN" value="<%= data.dataN %>" name="dataN" type="text" maxlength="10" onkeypress="mascaraData(this)" placeholder="Data de Nascimento" class="form-control input-md">
-                                </div>
-                            </div>
-                            <!-- Text input -->
-                            <div class="form-group col-md-5">
-                                <label class="col-md-2 control-label" for="plano">Plano</label>
-                                <div class="col-md-10">
-                                    <select value="<%= data.plano %>" id="plano" name="plano" class="form-control">
-                                        <option value="Básico" <% var selecionado = ''; if(data.plano == 'Basico'){ selecionado = 'selected'} %>
-                                            <%=selecionado %> > Básico </option>
-                                        <option value="Intermediário" <% var selecionado = ''; if(data.plano == 'Intermediário'){ selecionado = 'selected'} %>
-                                            <%=selecionado %> > Intermediário </option>
-                                        <option value="Musculação" <% var selecionado = ''; if(data.plano == 'Musculação'){ selecionado = 'selected'} %>
-                                            <%=selecionado %> > Musculação </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-primary" value="Confirmar">
-                                    <a href="/cliente/listCli"><input type="button" class="btn btn-danger"  value="Cancelar"></a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </nav>
             </div>
         </div>
-
     </div>
+
+    <div class="col-md-10 content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Atualizar Dados do Clientes
+            </div>
+            <div class="panel-body">
+                <form action="/update/cliente/<%= data.idCliente %>" class="form-horizontal" method="POST">
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="nome">Nome</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.nome %>" id="nome" type="text" name="nome" placeholder="Nome do usuário" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="idade">Idade</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.idade %>" id="idade" type="number" name="idade" placeholder="Nome do usuário" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="rg">RG</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.rg %>" id="rg" type="text" name="rg" maxlength="8" onkeypress="this.value = FormataRG(event)" placeholder="xxx.xxx.xxx-xx"
+                                class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="cpf">CPF</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.cpf %>" id="cpf" type="text" name="cpf" maxlength="14" onkeypress="this.value = FormataCPF(event)"
+                                placeholder="xxx.xxx.xxx-xx" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="email">Email</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.email %>" id="email" name="email" type="email" placeholder="exemplo@email.com" class="form-control input-md">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="telefone">Telefone</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.telefone %>" id="telefone" type="text" name="telefone" maxlength="20" onkeypress="this.value = FormataTelefone(event)"
+                                placeholder="(xx) x xxxx-xxxx" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Select Basic -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="sexo">Sexo</label>
+                        <div class="col-md-10">
+                            <select value="<%= data.sexo %>" id="sexo" name="sexo" class="form-control">
+                                <option value="Masculino" <% var selecionado='' ; if(data.sexo=='Masculino' ){ selecionado='selected' } %>
+                                    <%=selecionado %> > Masculino </option>
+                                <option value="Feminino" <% var selecionado='' ; if(data.sexo=='Feminino' ){ selecionado='selected' } %>
+                                    <%=selecionado %> > Feminino </option>
+                                <option value="Outro" <% var selecionado='' ; if(data.sexo=='Outro' ){ selecionado='selected' } %>
+                                    <%=selecionado %> > Outro </option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="estado">Estado</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.estado %>" id="estado" name="estado" type="text" placeholder="Estado" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="cidade">Cidade</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.cidade %>" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="bairro">Bairro</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.bairro %>" id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="cep">CEP</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.cep %>" id="cep" name="cep" type="text" maxlength="10" onkeypress="this.value = FormataCEP(event)"
+                                placeholder="CEP" class="form-control input-md" required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="senha">Senha</label>
+                        <div class="col-md-10">
+                            <input value="<%= data.senha %>" id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="dataN">D.Nasc</label>
+                        <div class="col-md-10">
+                            <input id="dataN" value="<%= data.dataN %>" name="dataN" type="text" maxlength="10" onkeypress="mascaraData(this)" placeholder="Data de Nascimento"
+                                class="form-control input-md">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="plano">Plano</label>
+                        <div class="col-md-10">
+                            <select value="<%= data.plano %>" id="plano" name="plano" class="form-control">
+                                <option value="Básico" <% var selecionado='' ; if(data.plano=='Basico' ){ selecionado='selected' } %>
+                                    <%=selecionado %> > Básico </option>
+                                <option value="Intermediário" <% var selecionado='' ; if(data.plano=='Intermediário' ){ selecionado='selected' } %>
+                                    <%=selecionado %> > Intermediário </option>
+                                <option value="Musculação" <% var selecionado='' ; if(data.plano=='Musculação' ){ selecionado='selected' } %>
+                                    <%=selecionado %> > Musculação </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary" value="Confirmar">
+                            <a href="/cliente/listCli">
+                                <input type="button" class="btn btn-danger" value="Cancelar">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 </main>

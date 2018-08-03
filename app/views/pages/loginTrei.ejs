@@ -1,48 +1,52 @@
-        <nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#acad-navbar">
-                    </button>
-                    <a class="navbar-brand">
-                        <img class="navbar-brand-acad" src="/img/logo@2x.png">
-                    </a>
+<nav class="navbar navbar-inverter navbar-fixed-top navbar-reprograma">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#logins">
+                <i class="fa fa-bars" style="color: white"></i>
+            </button>
+            <a class="navbar-brand">
+                <img class="navbar-brand-acad" src="/img/logo@2x.png">
+            </a>
+        </div>
+        <ul id="logins" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
+            <li>
+                <a href="/LoginUsuario">
+                    <i class="fa fa-address-card"></i> Administrador </a>
+            </li>
+            <li class="active">
+                <a href="/loginTrei">
+                    <i class="fa fa-dumbbell"></i> Treinador </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="formulario-panel panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Login Treinador</h3>
+
                 </div>
-                <ul id="acad-navbar" class="nav navbar-nav navbar-right collapse navbar-collapse" data-toggle="collapse" data-target="#acad-navbar">
-                    <li>
-                        <a href="/LoginUsuario"> <i class="fa fa-address-card"></i> Usuario </a>
-                    </li>
-                    <li class="active">
-                        <a href="/loginTrei"> <i class="fa fa-dumbbell"></i> Treinador </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                <div class="card card-container">
+                    <form class="form-signin" method="POST" action="treinador/listCli">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Endereço de Email" required autofocus>
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                    <div class="formulario-panel panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title text-center">Login Treinador</h3>
-
+                        <div id="remember" class="checkbox">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Lembre-me </label>
                         </div>
-                        <div class="card card-container">
-                            <form class="form-signin" method="POST" action="treinador/listCli">
-                                <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Endereço de Email" required autofocus>
-                                <label for="senha">Senha</label>
-                                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
-
-                                <div id="remember" class="checkbox">
-                                    <label><input type="checkbox" value="remember-me"> Lembre-me </label>
-                                </div>    
-                                <button class="btn btn-primary" type="submit">Entrar</button>
-                            </form>
-                        </div>
-                    </div>
+                        <button class="btn btn-primary" type="submit">Entrar</button>
+                    </form>
                 </div>
             </div>
         </div>
-    
     </div>
+</div>
+
+</div>
 </main>
