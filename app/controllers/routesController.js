@@ -305,7 +305,7 @@ controller.listFinancas = (req, res) => {
 
 controller.updateFinancas = (req, res) => {
   const data = Number(req.body.saldo);
-
+  
   req.getConnection((err, conn) => {
     conn.query('update financas set saldo = saldo - ? where idfinancas = 1', [data], (err, results) => {
 
