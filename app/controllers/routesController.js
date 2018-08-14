@@ -60,7 +60,7 @@ controller.addUsuario = (req, res) => {
 
 controller.editUsuario = (req, res) => {
   const { idUsuario } = req.params;
-
+  
   req.getConnection((err, conn) => {
     conn.query("select * from usuario where idUsuario = ?", [idUsuario], (err, results) => {
       res.render('usuario/editUse', {
@@ -377,8 +377,5 @@ controller.cancelarMovimento = (req, res) => {
     });
   }
 }
-
-
-
 
 module.exports = controller;
