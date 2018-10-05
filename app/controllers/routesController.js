@@ -49,10 +49,10 @@ controller.listUsuario = (req, res) => {
 
 controller.addUsuario = (req, res) => {
   const data = req.body;
-
+  console.log(data);
   req.getConnection((err, conn) => {
     conn.query('insert into usuario set ?', [data], (err, results) => {
-
+      
       res.redirect('/usuario/listUse');
     });
   });
@@ -102,30 +102,36 @@ controller.listCliente = (req, res) => {
 
 controller.addCliente = (req, res) => {
   const data = req.body;
+  // CALCULA IMC
+  let peso = req.body.peso;
+  let altura = req.body.altura;
+  let imc = peso / (altura * altura);
+  // DATA COMPLETA
   let dataSistema = new Date();
   let dia = dataSistema.getDate();
   let mes = dataSistema.getMonth();
   let ano = dataSistema.getFullYear();
+
   if (mes <= 9) {
     let dataCompleta = ano + '-' + '0' + mes + '-' + dia;
-
+    
     req.getConnection((err, conn) => {
       if (req.body.plano == 'Básico') {
-        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 30.00, CURDATE(), ?, ?)'
-          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, dataCompleta, data.dataN], (err, results) => {
-
+        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, peso, altura, imc, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 30.00, ?, ?, ?, CURDATE(), ?, ?)'
+          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.peso, data.altura, imc, dataCompleta, data.dataN], (err, results) => {
+                
             res.redirect('/cliente/listCli');
           });
       } else if (req.body.plano == 'Intermediário') {
-        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 50.00, CURDATE(), ?, ?)'
-          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, dataCompleta, data.dataN], (err, results) => {
-
+        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, peso, altura, imc, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 50.00, ?, ?, ?, CURDATE(), ?, ?)'
+          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.peso, data.altura, imc, dataCompleta, data.dataN], (err, results) => {
+              
             res.redirect('/cliente/listCli');
           });
       } else {
-        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 80.00, CURDATE(), ?, ?)'
-          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, dataCompleta, data.dataN], (err, results) => {
-
+        conn.query('insert into cliente (nome, idade, rg, cpf, email, telefone, sexo, cep, estado, cidade, bairro, senha, plano, valor, peso, altura, imc, dataC, dataR, dataN) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 80.00, ?, ?, ?, CURDATE(), ?, ?)'
+          , [data.nome, data.idade, data.rg, data.cpf, data.email, data.telefone, data.sexo, data.cep, data.estado, data.cidade, data.bairro, data.senha, data.plano, data.peso, data.altura, imc, dataCompleta, data.dataN], (err, results) => {
+            
             res.redirect('/cliente/listCli');
           });
       }
@@ -157,8 +163,6 @@ controller.addCliente = (req, res) => {
   };
 };
 
-
-
 controller.editCliente = (req, res) => {
   const { idCliente } = req.params;
 
@@ -172,7 +176,7 @@ controller.editCliente = (req, res) => {
 controller.updateCliente = (req, res) => {
   const { idCliente } = req.params;
   const data = req.body;
-
+  
   req.getConnection((err, conn) => {
     conn.query('update cliente set ? where idCliente = ?', [data, idCliente], (err, results) => {
       res.redirect('/cliente/listCli');
@@ -192,6 +196,14 @@ controller.deleteCliente = (req, res) => {
 
 
 //Rotas Treinador
+controller.listClienteTrei = (req, res) => {
+  req.getConnection((err, conn) => {
+    conn.query('select * from cliente', (err, results) => {
+      res.render('treinador/listCli', { data: results });
+    });
+  });
+};
+
 controller.listTreinador = (req, res) => {
   req.getConnection((err, conn) => {
     conn.query('select * from treinador', (err, results) => {
@@ -240,6 +252,28 @@ controller.deleteTreinador = (req, res) => {
     });
   });
 };
+
+controller.editCliTreinador = (req, res) => {
+  const { idCliente } = req.params;
+
+  req.getConnection((err, conn) => {
+    conn.query("select * from cliente where idCliente = ?", [idCliente], (err, results) => {
+      res.render('treinador/editCliTreinador', { data: results[0] });
+    });
+  });
+};
+
+controller.updateCliTreinador = (req, res) => {
+  const { idCliente } = req.params;
+  const data = req.body;
+  
+  req.getConnection((err, conn) => {
+    conn.query('update cliente set ? where idCliente = ?', [data, idCliente], (err, results) => {
+      res.redirect('/treinador/listCli');
+    });
+  });
+};
+
 
 //Rotas Relatorios
 controller.listCliRelatorios = (req, res) => {
@@ -377,5 +411,7 @@ controller.cancelarMovimento = (req, res) => {
     });
   }
 }
+
+
 
 module.exports = controller;

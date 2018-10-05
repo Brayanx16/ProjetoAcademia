@@ -16,6 +16,7 @@ router.post('/treinador/listCli/', routesController.loginTrei);
 router.get('/loginErro', (req, res) => { res.render('pages/loginErro') });
 
 
+
 //Rotas Usuario -------------------------------------------------------------------------------
 router.get('/loginUsuario', (req, res) => { res.render('pages/loginUsuario') });
 //---------------------------------------------------------------------------------------------
@@ -63,6 +64,11 @@ router.get('/delete/treinador/:idtreinador', routesController.deleteTreinador);
 //---------------------------------------------------------------------------------------------
 router.get('/loginTrei', (req, res) => { res.render('pages/loginTrei') });
 //---------------------------------------------------------------------------------------------
+router.get('/updateCli/treinador/:idCliente', routesController.editCliTreinador);
+//---------------------------------------------------------------------------------------------
+router.post('/updateCli/treinador/:idCliente', routesController.updateCliTreinador);
+//---------------------------------------------------------------------------------------------
+router.get('/treinador/listCli/', routesController.listClienteTrei);
 
 
 //Rotas Relatorios-----------------------------------------------------------------------------

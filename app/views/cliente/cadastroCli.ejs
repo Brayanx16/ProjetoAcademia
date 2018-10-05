@@ -196,7 +196,7 @@
                     <div class="form-group col-md-5">
                         <label class="col-md-2 control-label" for="cep">CEP</label>
                         <div class="col-md-10">
-                            <input id="cep" name="cep" type="text" maxlength="10" onkeypress="this.value = FormataCEP(event)" placeholder="CEP" class="form-control input-md"
+                            <input id="cep" name="cep" type="text" maxlength="10" placeholder="CEP" class="form-control input-md"
                                 required="">
                         </div>
                     </div>
@@ -211,8 +211,7 @@
                     <div class="form-group col-md-5">
                         <label class="col-md-2 control-label" for="dataN">D.Nasc</label>
                         <div class="col-md-10">
-                            <input id="dataN" name="dataN" type="text" maxlength="10" onkeypress="mascaraData(this)" placeholder="Data de Nascimento"
-                                class="form-control input-md">
+                            <input id="dataN" name="dataN" type="date" class="form-control input-md">
                         </div>
                     </div>
                     <!-- Text input -->
@@ -225,6 +224,22 @@
                                 <option value="Intermediário">Intermediário</option>
                                 <option value="Musculação">Musculação</option>
                             </select>
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="peso">Peso</label>
+                        <div class="col-md-10">
+                            <input id="peso" name="peso" type="number" maxlength="10" placeholder="Peso" class="form-control input-md"
+                                required="">
+                        </div>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-group col-md-5">
+                        <label class="col-md-2 control-label" for="altura">Altura</label>
+                        <div class="col-md-10">
+                            <input id="altura" name="altura" type="double" maxlength="10" placeholder="Altura" class="form-control input-md"
+                                required="">
                         </div>
                     </div>
                     <div class="col-md-8">
