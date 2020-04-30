@@ -4,7 +4,6 @@ const   express = require('express'),
         morgan = require('morgan'),
         mysql = require('mysql'),
         myConnection = require('express-myconnection'),
-        fontAwesome = require('@fortawesome/fontawesome-free'),
         app = express();
     
     
@@ -12,7 +11,7 @@ const   express = require('express'),
 //importando as rotas 
 const routesP = require('./app/routes/routesP');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
 app.set('view engine', 'ejs')
 app.set('views', './app/views')
 
